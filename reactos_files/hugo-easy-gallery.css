@@ -1,0 +1,20 @@
+.gallery figure {
+    /* tablet, mobile (default): 2 tiles */
+    display: block;
+    float: left;
+    width: 50%
+}
+@media only screen and (min-width : 768px) {
+    /* desktop: 4 tiles */
+    .gallery figure {
+        width: 25%
+    }
+}
+
+.gallery figure figcaption {
+    text-align: center
+}
+
+.gallery figure img {
+    padding: 0 2px
+}
