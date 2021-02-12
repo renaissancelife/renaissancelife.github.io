@@ -1,0 +1,321 @@
+sudo su/sudo -i or add sudo on my commands
+How to persistence my linux
+sudo fdisk -l
+sudo mkdir -p /mnt/linux
+sudo mount /dev/sdc2 /mnt/linux/
+sudo echo "/ union" > /mnt/linux/persistence.conf
+sudo umount /dev/sdc2
+
+how to get my deb file--------------------------------------------------------------------------
+
+在uos 20/deepin V20操作系统中添加华为的软件源，就能打开应用商店和安装软件，同时也能随时的更新系统，且速度相当的快。安装软件可参考Deepin系统安装软件总结：通过商店、二进制包、deb包、终端命令安装。
+
+ 
+
+在uos 20/deepin V20中添加华为软件源的方法
+
+1、建立源文件，运行以下命令，在/etc/apt/sources.list.d/中创建一个名为deepin.list的文件：
+
+sudo dedit /etc/apt/sources.list.d/deepin.list
+
+2、增加以下华为的软件源代码：
+
+### 华为源：
+
+deb [trusted=yes] https://mirrors.huaweicloud.com/deepin stable main contrib non-free
+
+#deb-src deb https://mirrors.huaweicloud.com/deepin stable main
+
+3、增加代码后保存文件并关闭文件退出即可。
+
+4、运行以下命令更新系统的缓存和更新系统软件：
+
+sudo apt-get update
+
+sudo apt-get upgrade
+
+等待命令运行完成即可。
+
+save offical deb web
+# Generate by isobuilder
+deb http://packages.chinauos.cn/uos eagle main contrib non-free
+
+
+ubuntu with key---------------------------------------------------------------------------------
+修改阿里源为Ubuntu 18.04默认的源
+
+备份/etc/apt/sources.list
+#备份
+cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+在/etc/apt/sources.list文件前面添加如下条目
+#添加阿里源
+deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+
+最后执行如下命令更新源
+##更新
+sudo apt-get update
+sudo apt-get upgrade
+
+另外其他几个国内源如下：
+##中科大源
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+
+##163源
+deb http://mirrors.163.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ bionic-backports main restricted universe multiverse
+
+##清华源
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+
+key for ubuntu----------------------------------------------------------------------------------
+
+我更新ubuntun18.04的软件源为国内，再执行apt-get update报错了。
+root@c:/home/c# apt-get update
+获取:1 http://mirrors.aliyun.com/ubuntu bionic InRelease [242 kB]
+获取:2 http://mirrors.aliyun.com/ubuntu bionic-security InRelease [88.7 kB]
+获取:3 http://mirrors.aliyun.com/ubuntu bionic-updates InRelease [88.7 kB]
+错误:1 http://mirrors.aliyun.com/ubuntu bionic InRelease       
+  由于没有公钥，无法验证下列签名： NO_PUBKEY 3B4FE6ACC0B21F32
+错误:2 http://mirrors.aliyun.com/ubuntu bionic-security InRelease
+  由于没有公钥，无法验证下列签名： NO_PUBKEY 3B4FE6ACC0B21F32
+获取:4 http://mirrors.aliyun.com/ubuntu bionic-proposed InRelease [242 kB]
+获取:5 http://mirrors.aliyun.com/ubuntu bionic-backports InRelease [74.6 kB]
+错误:3 http://mirrors.aliyun.com/ubuntu bionic-updates InRelease
+  由于没有公钥，无法验证下列签名： NO_PUBKEY 3B4FE6ACC0B21F32
+错误:4 http://mirrors.aliyun.com/ubuntu bionic-proposed InRelease
+  由于没有公钥，无法验证下列签名： NO_PUBKEY 3B4FE6ACC0B21F32
+错误:5 http://mirrors.aliyun.com/ubuntu bionic-backports InRelease
+  由于没有公钥，无法验证下列签名： NO_PUBKEY 3B4FE6ACC0B21F32
+正在读取软件包列表... 完成   
+W: GPG 错误：http://mirrors.aliyun.com/ubuntu bionic InRelease: 由于没有公钥，无法验证下列签名： NO_PUBKEY 3B4FE6ACC0B21F32
+E: 仓库 “http://mirrors.aliyun.com/ubuntu bionic InRelease” 没有数字签名。
+N: 无法安全地用该源进行更新，所以默认禁用该源。
+N: 参见 apt-secure(8) 手册以了解仓库创建和用户配置方面的细节。
+W: GPG 错误：http://mirrors.aliyun.com/ubuntu bionic-security InRelease: 由于没有公钥，无法验证下列签名： NO_PUBKEY 3B4FE6ACC0B21F32
+E: 仓库 “http://mirrors.aliyun.com/ubuntu bionic-security InRelease” 没有数字签名。
+N: 无法安全地用该源进行更新，所以默认禁用该源。
+N: 参见 apt-secure(8) 手册以了解仓库创建和用户配置方面的细节。
+W: GPG 错误：http://mirrors.aliyun.com/ubuntu bionic-updates InRelease: 由于没有公钥，无法验证下列签名： NO_PUBKEY 3B4FE6ACC0B21F32
+E: 仓库 “http://mirrors.aliyun.com/ubuntu bionic-updates InRelease” 没有数字签名。
+N: 无法安全地用该源进行更新，所以默认禁用该源。
+N: 参见 apt-secure(8) 手册以了解仓库创建和用户配置方面的细节。
+W: GPG 错误：http://mirrors.aliyun.com/ubuntu bionic-proposed InRelease: 由于没有公钥，无法验证下列签名： NO_PUBKEY 3B4FE6ACC0B21F32
+E: 仓库 “http://mirrors.aliyun.com/ubuntu bionic-proposed InRelease” 没有数字签名。
+N: 无法安全地用该源进行更新，所以默认禁用该源。
+N: 参见 apt-secure(8) 手册以了解仓库创建和用户配置方面的细节。
+W: GPG 错误：http://mirrors.aliyun.com/ubuntu bionic-backports InRelease: 由于没有公钥，无法验证下列签名： NO_PUBKEY 3B4FE6ACC0B21F32
+E: 仓库 “http://mirrors.aliyun.com/ubuntu bionic-backports InRelease” 没有数字签名。
+N: 无法安全地用该源进行更新，所以默认禁用该源。
+N: 参见 apt-secure(8) 手册以了解仓库创建和用户配置方面的细节。
+https://blog.csdn.net/rs_huangzs/article/details/51889189
+原因：
+是秘钥的问题。GPG是一个加密与解密的工具，在apt更新下载包时会进行加密解密。我们需要添加密钥。秘钥就是上面报错的显示的无法验证下列签名的一串数字。
+解决方法：
+root@c:/home/c# sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 3B4FE6ACC0B21F32 3B4FE6ACC0B21F32  3B4FE6ACC0B21F32
+ 
+Executing: /tmp/apt-key-gpghome.KEXJL5jRVE/gpg.1.sh --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 3B4FE6ACC0B21F32 3B4FE6ACC0B21F32 3B4FE6ACC0B21F32
+
+gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys
+gpg: 密钥 3B4FE6ACC0B21F32：公钥“Ubuntu Archive Automatic Signing Key (2012) <ftpmaster@ubuntu.com>”已导入
+gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys
+gpg: 密钥 3B4FE6ACC0B21F32：“Ubuntu Archive Automatic Signing Key (2012) <ftpmaster@ubuntu.com>”未改变
+gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys
+gpg: 密钥 3B4FE6ACC0B21F32：“Ubuntu Archive Automatic Signing Key (2012) <ftpmaster@ubuntu.com>”未改变
+gpg: key 3B4FE6ACC0B21F32: 20 signatures not checked due to missing keys
+gpg: 密钥 3B4FE6ACC0B21F32：“Ubuntu Archive Automatic Signing Key (2012) <ftpmaster@ubuntu.com>”未改变
+gpg: 合计被处理的数量：4
+gpg:               已导入：1
+gpg:              未改变：3
+root@c:/home/c# apt-get update
+
+how change lock screen password-----------------------------------------------------------------
+
+切到tty，sudo passwd deepin修改密码
+how to change hostname----------------------------------------------------------------------------------------
+sudo -i
+root@Deepin:~# vi /etc/hostname
+
+deepin use kali deb-----------------------------------------------------------------------------
+
+如何在deepin上安装kali软件 编辑
+
+历史版本
+简介
+本经验由深度用户(geange)分享，原文地址 由deepin用户ExplosiveBattery补充
+
+正文
+相必有些人会知道一个项目，专门为debian或者ubuntu安装来自于kali的软件katoolin（ExplosiveBattery推荐使用katoolin，https://github.com/LionSec/katoolin，因为这个项目会有人维持着更新）
+
+我也有尝试过使用这个软件，但是用python写的一个小脚本让我觉得它的界面实在是不太好看，所以参考了katoolin项目的代码后，我用bash重写这个项目。加上了bash中whiptail，让界面更加好看（话说好不好看也是看个人吧）
+
+先贴katoolin一下项目的地址吧 https://github.com/geange/kaliTools 这个项目是deepin linux上进行的（不得不说deepin这个国产linux在图形界面做的相当不错，以至于我都抛弃了习惯的ubuntu）。
+
+如何使用
+
+    git clone git@github.com</a>:geange/kaliTools.git
+    cd kaliTools/
+    chmod +x index.sh
+    sudo ./index.sh 
+你将会看到初始界面
+
+选择第一个，按下Enter键，kaliTools将会添加kali的源到你本机的系统中。
+
+第二个选项是删除kali的源，建议更新系统时删除kali的源，以免出现依赖冲突的问题
+第三个选项是批量安装kali分类的软件，按下enter键进入后会出现选项，可以选择单选或者多选（按下空格键可以勾选或者取消勾选）
+第四个选项是按需要安装kali的软件，需要哪一个就安装哪一个
+第五个选项退出软件（我对bash还不太熟悉，不知道怎么按下cancel键退出。。。） （进入第三或者第四个选项时，如果需要退出，按下ESC键即可）
+如果觉得不错，请帮我在github点个星，谢谢了^-^。有BUG也可以联系我，邮箱geange@outlook.com
+
+我的项目地址
+
+https://github.com/geange/kaliTools
+
+打开sources.list文件将下面的源复制到文件中，也可以只复制一部分。
+
+leafpad /etc/apt/sources.list
+#中科大
+deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+#阿里云
+deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+#清华大学
+deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+#浙大
+deb http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free
+deb-src http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free
+#东软大学
+deb http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib
+deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib
+#官方源
+deb http://http.kali.org/kali kali-rolling main non-free contrib
+保存之后执行
+
+apt-get update && apt-get upgrade && apt-get dist-upgrade
+apt-get clean
+如果出现数字签名无效的情况，就下载签名
+
+wget archive.kali.org/archive-key.asc //下载签名
+apt-key add archive-key.asc //安装签名
+root@kali:/var/lib/apt# sudo apt-get update
+获取:1 http://mirrors.ustc.edu.cn/kali kali-rolling InRelease [30.5 kB]
+错误:1 http://mirrors.ustc.edu.cn/kali kali-rolling InRelease
+下列签名无效： EXPKEYSIG ED444FF07D8D0BF6 Kali Linux Repository &lt;devel@kali.org&gt;
+正在读取软件包列表... 完成
+W: GPG 错误：http://mirrors.ustc.edu.cn/kali kali-rolling InRelease: 下列签名无效： EXPKEYSIG ED444FF07D8D0BF6 Kali Linux Repository <devel@kali.org>
+E: 仓库 “http://mirrors.ustc.edu.cn/kali kali-rolling InRelease” 没有数字签名。
+N: 无法安全地用该源进行更新，所以默认禁用该源。
+N: 参见 apt-secure(8) 手册以了解仓库创建和用户配置方面的细节。
+
+如何将Deepin改造为渗透测试神器
+**
+1.添加Kali源(出家旅行杀人必备)
+使用
+
+sudo gedit /etc/apt/sources.list
+1
+将下面的粘贴到文本的后面，然后保存
+
+#阿里云kali源 
+deb http://mirrors.aliyun.com/kali sana main non-free contrib 
+deb http://mirrors.aliyun.com/kali-security/ sana/updates main contrib non-free 
+deb-src http://mirrors.aliyun.com/kali-security/ sana/updates main contrib non-free
+
+#Kali
+deb http://http.kali.org/kali kali-rolling main contrib non-free
+deb-src http://http.kali.org/kali kali-rolling main contrib non-free
+1
+2
+3
+4
+5
+6
+7
+8
+然后
+
+sudo apt-get update
+1
+2.安装Nmap
+好像要提示缺少依赖"libperl5…"，解决方案就是“sudo apt-get install libperl-dev ”
+
+sudo apt-get install nmap
+1
+3.安装sqlmap
+
+
+sudo apt-get install sqlmap
+1
+4.安装ettercap
+
+sudo apt-get install ettercap
+1
+5.安装SET
+
+
+git clone https://github.com/trustedsec/social-engineer-toolkit
+cd social-engineer-toolkit/
+sudo python setup.py install
+1
+2
+3
+6.安装Metasploit
+
+
+sudo apt-get install metasploit-framework
+1
+注:
+
+server postgresql start   /*启动数据库*/
+sudo msfdb init /*初始化数据库*/
+1
+2
+解决搜索慢的问题
+msf > db_rebuild_cache /*需要等待执行完毕*/
+1
+听所搞事SET和ettercap更配喔
+使用Deepin的感受
+优点：
+1.对待新人很友好
+2.UI真的好看
+缺点：
+1.很容易出问题，我就遇到很多
+2.显卡驱动是个坑，小白注意了
+
