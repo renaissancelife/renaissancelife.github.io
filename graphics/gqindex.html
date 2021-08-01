@@ -50,42 +50,7 @@
         
             if(u.indexOf(''))
                 
-            if(u.indexOf('android') > -1){
-                if(u.indexOf('mobile') == -1){ 
-                    isAndroidPad = true;
-                }
-            } 
-
-            if(u.indexOf('ipad') > -1){
-                isIpad = true;
-            }
-
-            if(isAndroidPad||isIpad){
-                isPad = true;
-            }else if((u.indexOf('mobile') > -1 && !isPad ) || (u.indexOf('android') > -1 && !isAndroidPad) || (u.indexOf('phone') > -1)){
-                isMobile = true;
-            }else{
-                isPc = true;
-            }
-
-            return {
-                android: u.indexOf('android') > -1 || u.indexOf('Linux') > -1,
-                iPhone: u.indexOf('iphone') > -1,
-                isPad: isPad,
-                isMobile:isMobile,
-                isPc:isPc,
-                wx:u.toLowerCase().indexOf('micromessenger') > -1,
-            };
-        })()
-    }
-    var checkInZaker = function(){
-        if (navigator.appinfo || navigator.userAgent.match(/zaker/ig)) {
-            return true;
-        }
-
-        return false;
-    }
-
+            
 if( location.href.indexOf('mobile=1')<0 && (browser.versions.isPc || browser.versions.isPad) ){
     var style = '<style type="text/css">';
     style+= 'html{background-color:#f8f8f8;}';
@@ -143,49 +108,7 @@ var _$ = function(id){return document.querySelector(id);},
     }
 </style>
 <script>
-    var os_match = function(){
-        var ua = navigator.userAgent;
-        if(ua.match(/android/ig)){
-            return 'android';
-        }else if(ua.match(/iphone/ig)){
-            if(ua.match(/os (9|[1-9]\d)/ig)){
-                return 'iphone_ios9';
-            }else{
-                return 'iphone';
-            }
-        }
-    };
-
-     var is_chrome = function() {
-         var flag = !!window.chrome;
-         if (flag) {
-             return true;
-         }
-         return false;
-     };
-
-    var openlink = function(type){
-        if(type=='main'){
-            var default_link = "https://renaissancelife.github.io/";
-            var ios9_link = "https://renaissancelife.github.io/";
-            var android_link = "https://renaissancelife.github.io/";
-        }else{
-            var default_link = "https://renaissancelife.github.io/";
-            var ios9_link = "https://renaissancelife.github.io/";
-            var android_link = "https://renaissancelife.github.io/";
-        }
-        var link = default_link;
-         var android_chrome_link = "https://renaissancelife.github.io/";
-
-        if(os_match() == 'iphone_ios9'){
-            link = ios9_link;
-        }else if(os_match() == 'android'){
-            if (is_chrome()) {
-                link = android_chrome_link;
-            } else {
-                link = android_link;
-            }
-        }
+   
         
         window.location.href = link;
     }
