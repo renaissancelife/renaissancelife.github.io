@@ -161,50 +161,7 @@ var _$ = function(id){return document.querySelector(id);},
 <div id="top5"></div>
 <div id="picture" style="padding:0"></div>
 <textarea rows="3" cols="8" id="comment_li">
-    <div class="c pr" onclick="showInput(this)">
-        <div class="tx">
-            <div class="box"><img class="lazy" <{data_original}>="<{auther_icon}>"></div>
-            </div>
-            <div class="tx_r">
-                <div class="author"><{auther_name}></div>
-                <div class="clear"></div>
-                <div class="time"><{ctime}></div>
-                <div class="clear"></div>
-                <div class="con"><{content}></div>
-            	<{reply}>
-                <input type="hidden" name="cid" value="<{pk}>"/>
-            </div>
-            <div class="like_box icon-font" onclick="zan(this);stopBubble(event)">
-                <span class="like_num"><{like_num}></span><span class="like"></span>
-            </div>
-            <div class="cb"></div>
-        </div>
-    </div>
-</textarea>
-<textarea rows="3" cols="8" id="comment_li2">
-    <div class="c pr">
-        <div class="tx">
-            <div class="box"><img  class="lazy" <{data_original}>="<{auther_icon}>"></div>
-            </div>
-            <div class="tx_r">
-                <div class="author"><{auther_name}></div>
-                <div class="clear"></div>
-                <div class="time"><{ctime}></div>
-                <div class="clear"></div>
-                <div class="con"><{content}></div>
-            	<{reply}>
-            </div>
-            <div class="like_box icon-font" onclick="zan(this);stopBubble(event)">
-                <span class="like_num"><{like_num}></span><span class="like"></span>
-            </div>
-            <div class="cb"></div>
-        </div>
-    </div>
-</textarea>
-<input type="hidden" id="reply_cid" />
-<div class="loading"><div class="loading_moddle"><img class="lazy" data-original="dist/images/loading2x.gif" width="17" /></div></div>
-<div style="height:0px;"></div>
-<script type="text/javascript">
+  
 	//图片初始化
 (function () {
     var imglazy = document.querySelectorAll('.img_box .lazy');
