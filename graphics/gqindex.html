@@ -162,62 +162,6 @@ var _$ = function(id){return document.querySelector(id);},
 <div id="picture" style="padding:0"></div>
 <textarea rows="3" cols="8" id="comment_li">
   
-	//图片初始化
-(function () {
-    var imglazy = document.querySelectorAll('.img_box .lazy');
-    imglazy = Array.prototype.slice.call(imglazy);
-    imglazy.forEach(function(img){
-        // 获取宽高
-        var dWidth = img.dataset['width'];
-        var dHeight = img.dataset['height'];
-
-        // 获取父元素
-        var parentEle = img;
-        do{
-            parentEle = parentEle.parentNode;
-        }
-        while(!parentEle.classList.contains('img_box') || parentEle.id == "content")
-
-        // 获取图片的父容器占宽
-        var parentWidth = parentEle.offsetWidth;
-
-        // 1.  图片原宽度大于容器宽度70%，撑到100%
-        // 2.  图片原宽度大于容器宽度40%，小于容器宽度70%，保持图片原尺寸
-        // 3.  图片原宽度小于容器宽度40%，撑到40%
-        var maxRate = 0.7;
-        var minRate = 0.4;
-
-        // 计算阀值
-        var maxWidth = maxRate * parentWidth;
-        var minWidth = minRate * parentWidth;
-
-        // 最终设定图片的宽高
-        var imgWidth, imgHeight;
-
-        if (dWidth) {
-            if (dWidth > maxWidth) {
-                imgWidth = parentWidth;
-            } else if (dWidth > minWidth) {
-                imgWidth = dWidth;
-                img.parentNode.style['display'] = 'inline-block';
-                // img.parent('.content_img_div').css('display', 'inline-block');
-            } else {
-                imgWidth = minWidth;
-                img.parentNode.style['display'] = 'inline-block';
-                // img.parent('.content_img_div').css('display', 'inline-block');
-            }
-
-            // 计算高度
-            imgHeight = dHeight / dWidth * imgWidth;
-        } else {
-            imgWidth = parentWidth;
-        }
-        
-        // 设置图片大小
-        img.style['width'] = imgWidth + "px";
-        img.style['height'] = imgHeight + "px";
-    });
-
 <script src="style/js/c.js"></script>
 </body>
 </html>
