@@ -1,0 +1,52 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["layout-toggle"],{f3hN:function(e,t,n){"use strict";n.r(t),n.d(t,"ToolingInfo",(function(){return j})),n.d(t,"LayoutToggle",(function(){return S})),n.d(t,"LayoutToggleTemplate",(function(){return f})),n.d(t,"LayoutToggleStyles",(function(){return D}));var o=n("Zn5T"),a=n("A03o");const l=Object(a.a)(o.a.layoutToggle,"A sample Peregrine Web Component experience",{});var i=n("D57K"),s=n("s9+9"),r=n("o1cI"),c=n("b/Qm"),d=n("Qf6H"),g=n("u5KZ"),u=n("Am8i"),p=n("IqCT"),m=n("oePG"),h=n("d0Z1"),y=n("+Ht2"),T=n("8X6I"),b=n("SSDD");class S extends p.a{constructor(){super(...arguments),this.handleOnScroll=()=>{const e=scrollY<100&&this.layoutState.imageOfTheDayEnabled&&("headingsonly"===this.layoutState.selectedFeedDisplaySetting||"peek"===this.layoutState.selectedFeedDisplaySetting);e!=this.isFeedTranslucent&&(this.isFeedTranslucent=e)}}experienceConnected(){this.templateReady=!1,this.populateTelemetryTags(),this.pageSettingsConnector=Object(y.c)(s.a.ChromiumPageSettings),this.pageSettingsConnector&&Object(h.c)(s.a.ChromiumPageSettings,e=>{this.layoutState=e,this.isSingleColumn=e.isSingleColumn;const t=scrollY<100&&e.imageOfTheDayEnabled&&("headingsonly"===e.selectedFeedDisplaySetting||"peek"===e.selectedFeedDisplaySetting);this.isFeedTranslucent=t;const n=matchMedia("(prefers-color-scheme:dark)");this.isDarkBackground=n&&n.matches,this.templateReady=!0})}getExperienceType(){return o.a.layoutToggle}shadowDomPopulated(){addEventListener("scroll",this.handleOnScroll)}disconnectedCallback(){removeEventListener("scroll",this.handleOnScroll)}populateTelemetryTags(){this.telemetryObject&&(this.singleColumnButtonTelemetryTag=this.telemetryObject.addOrUpdateChild({name:"LayoutSingleColumn",content:{headline:"Toggle for SingleColumn"}}).getMetadataTag(),this.multiColumnButtonTelemetryTag=this.telemetryObject.addOrUpdateChild({name:"LayoutMultiColumn",content:{headline:"Toggle for MultiColumn"}}).getMetadataTag())}updateToggleSelection(e,t){return Object(i.b)(this,void 0,void 0,(function*(){const n=t&&t.target;if(!n||this.isSingleColumn===e)return;const o="path"===n.tagName;g.a.sendActionEvent(o?n.parentElement:n,u.b.Click,u.c.Navigate),this.recordUserLayoutChoice(e),r.a.saveFeedLayoutSetting(e?c.b.SingleColumn:c.b.MultiColumn,c.a.Ntp),Object(T.c)(b.a.FeedLayoutSwitch)}))}recordUserLayoutChoice(e){const t={setting:"single_column",source:"ntp",timestamp:(new Date).getTime(),value:e};d.a.savePreferenceSetting("single_column",t)}}Object(i.e)([m.d],S.prototype,"isSingleColumn",void 0),Object(i.e)([m.d],S.prototype,"isFeedTranslucent",void 0),Object(i.e)([m.d],S.prototype,"isDarkBackground",void 0),Object(i.e)([m.d],S.prototype,"templateReady",void 0);var C=n("6BDD"),v=n("0QZK"),k=n("eUhr");const f=C.b`
+<div id="layoutToggle" class=${e=>O(e)}>
+    <span class="gridView ${e=>e.isSingleColumn?"":"selected"}"
+    ${Object(k.b)(e=>e.multiColumnButtonTelemetryTag)}
+        @click=${(e,t)=>null==e?void 0:e.updateToggleSelection(!1,t.event)}
+    >
+        ${v.V}
+    </span>
+    <span class="listView ${e=>e.isSingleColumn?"selected":""}"
+    ${Object(k.b)(e=>e.singleColumnButtonTelemetryTag)}
+        @click=${(e,t)=>null==e?void 0:e.updateToggleSelection(!0,t.event)}
+    >
+        ${v.lb}
+    </span>   
+</div>
+`,O=e=>{let t="layoutToggle ";return e.isDarkBackground||e.isFeedTranslucent?t+="dark ":t+="light ",t};const D=n("4X57").a`
+    .layoutToggle {
+        border-radius: 99px;
+        background: rgba(0, 0, 0, 0.07);
+        width: 58px;
+    }
+
+    .layoutToggle:hover {
+        cursor: pointer;
+    }
+
+    svg {
+        padding: 3px;
+    }
+
+    span {
+        display: inline-block;
+        padding: 3px 3px 0 3px;
+        border-radius: 99px;
+    }
+
+    .dark {
+        background: #404040;
+    }
+
+    .dark path {
+        fill: #f5f5f5;
+    }
+
+    .dark .selected {
+        background: #505050;
+    }
+
+    .light .selected {
+        background: rgba(0, 0, 0, 0.09);
+    }
+`,j={experienceConfigSchema:l}}}]);

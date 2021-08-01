@@ -1,0 +1,313 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["waffle-wc"],{"845V":function(e,t,i){"use strict";i.r(t),i.d(t,"ToolingInfo",(function(){return pe})),i.d(t,"AppIconMap",(function(){return R})),i.d(t,"WaffleWC",(function(){return G})),i.d(t,"WaffleWCTemplate",(function(){return Y})),i.d(t,"WaffleWCStyles",(function(){return re}));var o=i("A03o"),a=i("C49W"),n=i("sydv"),l=i("akWC"),s=i("Zn5T");const r=Object(o.a)(s.a.waffleWC,"A sample Peregrine Web Component experience",Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({},Object(a.c)("isEnterprisePage","Checks if it is an enterprise page.")),Object(n.c)("office365Link","Url for office365 page")),Object(n.c)("allAppsLink","Url for all apps page, for unauthorised user")),Object(n.c)("office365LinkUnAuth","Url for office365 page, for unauthorised user")),Object(n.c)("allAppsLinkUnAuth","Url for all apps page")),Object(n.c)("officeIconLocation","Base url for office icons")),Object(l.a)({allAppsLinkText:'To show "All Apps" on waffle dialog',allAppsLinkHoverText:'To display "Go to All Apps" when hovered on All Apps button',consumerDialogTitle:"To display the title on the enterprise waffle dialog",enterpriseDialogTitle:"To display the title on the consumer waffle dialog",office365LinkText:'To show "Office 365" on the waffle dialog',office365LinkHoverText:'To display "Go to Office 365" when hovered on All Apps button',waffleButtonHoverText:'To display "App launcher" when hovered on waffle button'})));var p=i("D57K"),c=i("s9+9"),f=i("tERu");const d=[{Title:"Outlook",Text:"Outlook",Url:"https://outlook.com",icon:"Outlook_24x.svg",unAuthUrl:"https://outlook.com/?ocid=PROD_Edge_CONS_WebXT_FM_EDG_NTP-Waffle-Outlook"},{Title:"OneDrive",Text:"OneDrive",Url:"https://onedrive.live.com",icon:"OneDrive_24x.svg",unAuthUrl:"https://onedrive.live.com/?ocid=PROD_Edge_CONS_WebXT_FM_EDG_NTP-Waffle-OneDrive"},{Title:"Word",Text:"Word",Url:"https://www.office.com/launch/word?auth=1",icon:"Word_24x.svg",unAuthUrl:"https://www.microsoft.com/microsoft-365/free-productivity-apps?ocid=PROD_Edge_CONS_WebXT_FM_EDG_NTP-Waffle-Word"},{Title:"Excel",Text:"Excel",Url:"https://www.office.com/launch/excel?auth=1",icon:"Excel_24x.svg",unAuthUrl:"https://www.microsoft.com/microsoft-365/free-productivity-apps?ocid=PROD_Edge_CONS_WebXT_FM_EDG_NTP-Waffle-Excel"},{Title:"PowerPoint",Text:"PowerPoint",Url:"https://www.office.com/launch/powerpoint?auth=1",icon:"PowerPoint_24x.svg",unAuthUrl:"https://www.microsoft.com/microsoft-365/free-productivity-apps?ocid=PROD_Edge_CONS_WebXT_FM_EDG_NTP-Waffle-PowerPoint"},{Title:"OneNote",Text:"OneNote",Url:"https://www.onenote.com/notebooks?auth=1",icon:"OneNote_24x.svg",unAuthUrl:"https://www.microsoft.com/microsoft-365/free-productivity-apps?ocid=PROD_Edge_CONS_WebXT_FM_EDG_NTP-Waffle-OneNote"},{Title:"To Do",Text:"ToDo",Url:"https://to-do.microsoft.com/tasks/?auth=1",icon:"ToDo_24x.svg",unAuthUrl:"https://www.microsoft.com/microsoft-365/free-productivity-apps?ocid=PROD_Edge_CONS_WebXT_FM_EDG_NTP-Waffle-ToDo"},{Title:"Calendar",Text:"Calendar",Url:"https://outlook.live.com/calendar/",icon:"Calendar_24x.svg",unAuthUrl:"https://outlook.live.com/calendar/?ocid=PROD_Edge_CONS_WebXT_FM_EDG_NTP-Waffle-Calendar"},{Title:"Skype",Text:"Skype",Url:"https://web.skype.com/?source=owa",icon:"Skype_24x.svg",unAuthUrl:"https://www.microsoft.com/microsoft-365/free-productivity-apps?ocid=PROD_Edge_CONS_WebXT_FM_EDG_NTP-Waffle-Skype"}],g="Excel_24x.svg",h="OneDrive_24x.svg",C="OneNote_24x.svg",b="Outlook_24x.svg",u="PowerBI_24x.svg",w="PowerPoint_24x.svg",x="SharePoint_24x.svg",v="Skype_24x.svg",m="Sway_24x.svg",O="Teams_24x.svg",T="Visio_24x.svg",k="Word_24x.svg",y="Yammer_24x.svg",_="Calendar_24x.svg",L="ToDo_24x.svg";var j=i("iCAe"),$=i("Am8i"),D=i("u5KZ"),A=i("oePG"),E=i("QBS5"),S=i("QHbP"),W=i("wZHk"),P=i("HxRh"),U=i("IqCT"),N=i("3KaK"),M=i("d0Z1"),B=i("+Ht2");const I='\n<svg width="14" height="13" class="arrow-icon" viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">\n    <path d="M7.54848 0L14 6.5L7.54848 13L6.93144 12.3783L12.3271 6.94208H0V6.05792H12.3271L6.93144 0.621679L7.54848 0Z" />\n</svg>\n';var H=i("/+Un");const R={Excel:g,OneDrive:h,OneNote:C,Outlook:b,PowerBI:u,PowerPoint:w,SharePoint:x,Skype:v,Sway:m,Teams:O,Visio:T,Word:k,Yammer:y,ToDo:L,Calendar:_};class G extends U.a{constructor(){super(...arguments),this.isWaffleExpanded=!1,this.dismissDialog=e=>{this.isWaffleExpanded=!1,Object(j.c)(j.a.waffle,!1)}}experienceConnected(){Object(M.c)(c.a.ChromiumPageSettings,e=>{this.isOnImage=e.imageOfTheDayEnabled||Object(N.f)()}),this.shellNewTabDataConnector=Object(B.c)(c.a.ShellNewTabData),this.populateTelemetryTags(),this.initWaffleContent()}disconnectedCallback(){window.removeEventListener("resize",this.dismissDialog),window.removeEventListener("scroll",this.dismissDialog)}connectedCallback(){super.connectedCallback(),window.addEventListener("resize",this.dismissDialog),window.addEventListener("scroll",this.dismissDialog)}getExperienceType(){return s.a.waffleWC}shadowDomPopulated(){const e=this.shadowRoot.getElementById("waffle");e&&Object(S.b)(W.a.waffle,e)}getAppList(){this.config.isEnterprisePage?(this.getEnterpriseAppList(),this.office365Link=this.config.office365Link,this.allAppsLink=this.config.allAppsLink):Object(H.f)().then(e=>{this.office365Link=e===f.c.SignedIn?this.config.office365Link:this.config.office365LinkUnAuth,this.allAppsLink=e===f.c.SignedIn?this.config.allAppsLink:this.config.allAppsLinkUnAuth,this.msaSignedInStatus=e===f.c.SignedIn,this.generateAppLinkList(d)})}initWaffleContent(){if(this.config.buttonTextLocKey){const e=this.strings[this.config.buttonTextLocKey];this.waffleContent=e,this.waffleHoverText=e}else this.waffleContent='\n<svg class="waffle-button-icon" xmlns="http://www.w3.org/2000/svg">\n    <path d="M1.6 0C1.82222 0 2.03056 0.0416667 2.225 0.125C2.41944 0.208333 2.58889 0.322222 2.73333 0.466667C2.87778 0.611111 2.99167 0.780556 3.075 0.975C3.15833 1.16944 3.2 1.37778 3.2 1.6C3.2 1.82222 3.15833 2.03056 3.075 2.225C2.99167 2.41944 2.87778 2.58889 2.73333 2.73333C2.58889 2.87778 2.41944 2.99167 2.225 3.075C2.03056 3.15833 1.82222 3.2 1.6 3.2C1.37778 3.2 1.16944 3.15833 0.975 3.075C0.780556 2.99167 0.611111 2.87778 0.466667 2.73333C0.322222 2.58889 0.208333 2.41944 0.125 2.225C0.0416667 2.03056 0 1.82222 0 1.6C0 1.37778 0.0416667 1.16944 0.125 0.975C0.208333 0.780556 0.322222 0.611111 0.466667 0.466667C0.611111 0.322222 0.780556 0.208333 0.975 0.125C1.16944 0.0416667 1.37778 0 1.6 0ZM8 0C8.22222 0 8.43056 0.0416667 8.625 0.125C8.81944 0.208333 8.98889 0.322222 9.13333 0.466667C9.27778 0.611111 9.39167 0.780556 9.475 0.975C9.55833 1.16944 9.6 1.37778 9.6 1.6C9.6 1.82222 9.55833 2.03056 9.475 2.225C9.39167 2.41944 9.27778 2.58889 9.13333 2.73333C8.98889 2.87778 8.81944 2.99167 8.625 3.075C8.43056 3.15833 8.22222 3.2 8 3.2C7.77778 3.2 7.56944 3.15833 7.375 3.075C7.18056 2.99167 7.01111 2.87778 6.86667 2.73333C6.72222 2.58889 6.60833 2.41944 6.525 2.225C6.44167 2.03056 6.4 1.82222 6.4 1.6C6.4 1.37778 6.44167 1.16944 6.525 0.975C6.60833 0.780556 6.72222 0.611111 6.86667 0.466667C7.01111 0.322222 7.18056 0.208333 7.375 0.125C7.56944 0.0416667 7.77778 0 8 0ZM14.4 3.2C14.1778 3.2 13.9694 3.15833 13.775 3.075C13.5806 2.99167 13.4111 2.87778 13.2667 2.73333C13.1222 2.58889 13.0083 2.41944 12.925 2.225C12.8417 2.03056 12.8 1.82222 12.8 1.6C12.8 1.37778 12.8417 1.16944 12.925 0.975C13.0083 0.780556 13.1222 0.611111 13.2667 0.466667C13.4111 0.322222 13.5806 0.208333 13.775 0.125C13.9694 0.0416667 14.1778 0 14.4 0C14.6222 0 14.8306 0.0416667 15.025 0.125C15.2194 0.208333 15.3889 0.322222 15.5333 0.466667C15.6778 0.611111 15.7917 0.780556 15.875 0.975C15.9583 1.16944 16 1.37778 16 1.6C16 1.82222 15.9583 2.03056 15.875 2.225C15.7917 2.41944 15.6778 2.58889 15.5333 2.73333C15.3889 2.87778 15.2194 2.99167 15.025 3.075C14.8306 3.15833 14.6222 3.2 14.4 3.2ZM1.6 6.4C1.82222 6.4 2.03056 6.44167 2.225 6.525C2.41944 6.60833 2.58889 6.72222 2.73333 6.86667C2.87778 7.01111 2.99167 7.18056 3.075 7.375C3.15833 7.56944 3.2 7.77778 3.2 8C3.2 8.22222 3.15833 8.43056 3.075 8.625C2.99167 8.81944 2.87778 8.98889 2.73333 9.13333C2.58889 9.27778 2.41944 9.39167 2.225 9.475C2.03056 9.55833 1.82222 9.6 1.6 9.6C1.37778 9.6 1.16944 9.55833 0.975 9.475C0.780556 9.39167 0.611111 9.27778 0.466667 9.13333C0.322222 8.98889 0.208333 8.81944 0.125 8.625C0.0416667 8.43056 0 8.22222 0 8C0 7.77778 0.0416667 7.56944 0.125 7.375C0.208333 7.18056 0.322222 7.01111 0.466667 6.86667C0.611111 6.72222 0.780556 6.60833 0.975 6.525C1.16944 6.44167 1.37778 6.4 1.6 6.4ZM8 6.4C8.22222 6.4 8.43056 6.44167 8.625 6.525C8.81944 6.60833 8.98889 6.72222 9.13333 6.86667C9.27778 7.01111 9.39167 7.18056 9.475 7.375C9.55833 7.56944 9.6 7.77778 9.6 8C9.6 8.22222 9.55833 8.43056 9.475 8.625C9.39167 8.81944 9.27778 8.98889 9.13333 9.13333C8.98889 9.27778 8.81944 9.39167 8.625 9.475C8.43056 9.55833 8.22222 9.6 8 9.6C7.77778 9.6 7.56944 9.55833 7.375 9.475C7.18056 9.39167 7.01111 9.27778 6.86667 9.13333C6.72222 8.98889 6.60833 8.81944 6.525 8.625C6.44167 8.43056 6.4 8.22222 6.4 8C6.4 7.77778 6.44167 7.56944 6.525 7.375C6.60833 7.18056 6.72222 7.01111 6.86667 6.86667C7.01111 6.72222 7.18056 6.60833 7.375 6.525C7.56944 6.44167 7.77778 6.4 8 6.4ZM14.4 6.4C14.6222 6.4 14.8306 6.44167 15.025 6.525C15.2194 6.60833 15.3889 6.72222 15.5333 6.86667C15.6778 7.01111 15.7917 7.18056 15.875 7.375C15.9583 7.56944 16 7.77778 16 8C16 8.22222 15.9583 8.43056 15.875 8.625C15.7917 8.81944 15.6778 8.98889 15.5333 9.13333C15.3889 9.27778 15.2194 9.39167 15.025 9.475C14.8306 9.55833 14.6222 9.6 14.4 9.6C14.1778 9.6 13.9694 9.55833 13.775 9.475C13.5806 9.39167 13.4111 9.27778 13.2667 9.13333C13.1222 8.98889 13.0083 8.81944 12.925 8.625C12.8417 8.43056 12.8 8.22222 12.8 8C12.8 7.77778 12.8417 7.56944 12.925 7.375C13.0083 7.18056 13.1222 7.01111 13.2667 6.86667C13.4111 6.72222 13.5806 6.60833 13.775 6.525C13.9694 6.44167 14.1778 6.4 14.4 6.4ZM1.6 12.8C1.82222 12.8 2.03056 12.8417 2.225 12.925C2.41944 13.0083 2.58889 13.1222 2.73333 13.2667C2.87778 13.4111 2.99167 13.5806 3.075 13.775C3.15833 13.9694 3.2 14.1778 3.2 14.4C3.2 14.6222 3.15833 14.8306 3.075 15.025C2.99167 15.2194 2.87778 15.3889 2.73333 15.5333C2.58889 15.6778 2.41944 15.7917 2.225 15.875C2.03056 15.9583 1.82222 16 1.6 16C1.37778 16 1.16944 15.9583 0.975 15.875C0.780556 15.7917 0.611111 15.6778 0.466667 15.5333C0.322222 15.3889 0.208333 15.2194 0.125 15.025C0.0416667 14.8306 0 14.6222 0 14.4C0 14.1778 0.0416667 13.9694 0.125 13.775C0.208333 13.5806 0.322222 13.4111 0.466667 13.2667C0.611111 13.1222 0.780556 13.0083 0.975 12.925C1.16944 12.8417 1.37778 12.8 1.6 12.8ZM8 12.8C8.22222 12.8 8.43056 12.8417 8.625 12.925C8.81944 13.0083 8.98889 13.1222 9.13333 13.2667C9.27778 13.4111 9.39167 13.5806 9.475 13.775C9.55833 13.9694 9.6 14.1778 9.6 14.4C9.6 14.6222 9.55833 14.8306 9.475 15.025C9.39167 15.2194 9.27778 15.3889 9.13333 15.5333C8.98889 15.6778 8.81944 15.7917 8.625 15.875C8.43056 15.9583 8.22222 16 8 16C7.77778 16 7.56944 15.9583 7.375 15.875C7.18056 15.7917 7.01111 15.6778 6.86667 15.5333C6.72222 15.3889 6.60833 15.2194 6.525 15.025C6.44167 14.8306 6.4 14.6222 6.4 14.4C6.4 14.1778 6.44167 13.9694 6.525 13.775C6.60833 13.5806 6.72222 13.4111 6.86667 13.2667C7.01111 13.1222 7.18056 13.0083 7.375 12.925C7.56944 12.8417 7.77778 12.8 8 12.8ZM14.4 12.8C14.6222 12.8 14.8306 12.8417 15.025 12.925C15.2194 13.0083 15.3889 13.1222 15.5333 13.2667C15.6778 13.4111 15.7917 13.5806 15.875 13.775C15.9583 13.9694 16 14.1778 16 14.4C16 14.6222 15.9583 14.8306 15.875 15.025C15.7917 15.2194 15.6778 15.3889 15.5333 15.5333C15.3889 15.6778 15.2194 15.7917 15.025 15.875C14.8306 15.9583 14.6222 16 14.4 16C14.1778 16 13.9694 15.9583 13.775 15.875C13.5806 15.7917 13.4111 15.6778 13.2667 15.5333C13.1222 15.3889 13.0083 15.2194 12.925 15.025C12.8417 14.8306 12.8 14.6222 12.8 14.4C12.8 14.1778 12.8417 13.9694 12.925 13.775C13.0083 13.5806 13.1222 13.4111 13.2667 13.2667C13.4111 13.1222 13.5806 13.0083 13.775 12.925C13.9694 12.8417 14.1778 12.8 14.4 12.8Z"/>\n</svg>\n',this.waffleHoverText=this.strings.waffleButtonHoverText}populateTelemetryTags(){this.telemetryObject&&(this.office365TelemetryTag=this.telemetryObject.addOrUpdateChild({name:"Office365",action:$.b.Click,behavior:$.c.Navigate,content:{headline:"Office 365"}}).getMetadataTag(),this.waffleButtonTelemetryTag=this.telemetryObject.addOrUpdateChild({name:"WaffleButton",action:$.b.Click,behavior:$.c.Show,content:{headline:"Waffle Button"},type:$.f.Interaction}).getMetadataTag())}getEnterpriseAppList(){Object(M.c)(c.a.ShellNewTabData,e=>{e.responseRecieved&&this.handleEnterpriseAppListResponse(e.shellNewTabData)})}handleEnterpriseAppListResponse(e){e&&e.WorkloadLinks?this.generateAppLinkList(e.WorkloadLinks):D.a.sendAppErrorEvent(Object.assign(Object.assign({},P.sc),{message:"Failed to get list of apps for Enterprise Waffle from Shell New Tab Data Connector",pb:Object.assign(Object.assign({},P.sc.pb),{customMessage:JSON.stringify(e)})}))}generateAppLinkList(e){let t;this.appsList=e.map(e=>{this.telemetryObject&&(t=this.telemetryObject.addOrUpdateChild({name:"EnterpriseWaffleAppLink",action:$.b.Click,behavior:$.c.Navigate,content:{headline:e.text},type:$.f.Interaction}).getMetadataTag());const i=R[e.Text];return{hoverText:e.Title,svgIcon:i?this.config.officeIconLocation+i:null,title:e.Text,url:this.getAppLinkUrl(e),appLinkTelemetryTag:t}}),this.appsList&&(this.isWaffleExpanded=!0,Object(j.c)(j.a.waffle,!0))}getAppLinkUrl(e){if(e)return this.config.isEnterprisePage||this.msaSignedInStatus?e.Url:e.unAuthUrl}}Object(p.e)([A.d],G.prototype,"office365Link",void 0),Object(p.e)([A.d],G.prototype,"allAppsLink",void 0),Object(p.e)([Object(E.b)({mode:"boolean"})],G.prototype,"isOnImage",void 0),Object(p.e)([A.d],G.prototype,"appsList",void 0),Object(p.e)([Object(E.b)({mode:"boolean"})],G.prototype,"isWaffleExpanded",void 0),Object(p.e)([A.d],G.prototype,"waffleContent",void 0),Object(p.e)([A.d],G.prototype,"waffleHoverText",void 0);var Z=i("m1Vi"),F=i("KHt8"),X=i("S35a"),K=i("6BDD"),z=i("6vBc"),Q=i("+53S"),V=i("UNqU"),q=i("eUhr");Z.b,F.b,X.a;const J=K.b`
+    <fluent-anchor
+        role="link"
+        ${Object(q.b)(e=>e.appLinkTelemetryTag)}
+        appearance="stealth"
+        class="app-link"
+        tabindex="0"
+        href=${e=>e.url}
+        title=${e=>e.title}
+        aria-label=${e=>e.hoverText}
+    >
+        <label class="app-title">
+            ${e=>e.title}
+        </label>
+        <img
+            slot="start"
+            viewBox="0 0 22 22"
+            width="22px"
+            height="22px"
+            src=${e=>e.svgIcon}
+        >
+        </svg>
+    </fluent-anchor>
+`,Y=K.b`
+    <fluent-button
+        id="waffle"
+        class="waffle-button ${e=>e.isOnImage?"img":""} ${e=>e.waffleContent.indexOf("svg")<0?"text":""}"
+        @click=${e=>e.getAppList()}
+        aria-label=${e=>e.waffleHoverText}
+        title=${e=>e.waffleHoverText}
+        ${Object(q.b)(e=>e.waffleButtonTelemetryTag)}
+    >
+        ${e=>K.b`${e.waffleContent}`}
+    </fluent-button>
+
+    ${Object(z.a)(e=>e.appsList,K.b`
+        <fluent-dialog 
+            @dismiss="${(e,t)=>e.dismissDialog(t.event)}"
+            trap-focus="false"
+            ${Object(Q.b)("waffleDialog")} class=${e=>e.isWaffleExpanded?"waffle-dialog-expanded":"waffle-dialog"}>
+            <div class="apps-module">
+                <h2 class="apps-module-heading">
+                    ${e=>e.config.isEnterprisePage?e.strings.enterpriseDialogTitle:e.strings.consumerDialogTitle}
+                </h2>
+
+                <fluent-anchor
+                    appearance="lightweight"
+                    ${Object(q.b)(e=>e.office365TelemetryTag)}
+                    class="office-links"
+                    href=${e=>e.office365Link}
+                    tabindex="0"
+                    title=${e=>e.strings.office365LinkText}
+                    aria-label=${e=>e.strings.office365LinkHoverText}
+                >
+                    ${e=>e.strings.office365LinkText}
+                    ${I}
+                    
+                </fluent-anchor>
+
+                <div class="apps-module-tiles">
+                    ${Object(V.c)(e=>e.appsList,J,{positioning:!0})}
+                </div>
+
+                <fluent-anchor
+                    appearance="lightweight"
+                    class="all-apps-link"
+                    href=${e=>e.allAppsLink}
+                    tabindex="0"
+                    title=${e=>e.strings.allAppsLinkText}
+                    aria-label=${e=>e.strings.allAppsLinkHoverText}
+                >
+                    ${e=>e.strings.allAppsLinkText}
+                    ${I}
+                </fluent-anchor>
+            </div>
+        </fluent-dialog>
+    `)}
+`;var ee=i("CzTk"),te=i("oqLQ"),ie=i("kL0l"),oe=i("0fst"),ae=i("4X57");const ne=""+oe.a.Dialog,le=ae.a`
+    .apps-module-tiles {
+        margin-left: 8px;
+        margin-right: 0px;
+    }
+
+    .apps-module-heading {
+        margin-left: 18px;
+        margin-right: 0px;
+    }
+    .waffle-button {
+        right: auto;
+        left: 44px;
+    }
+
+    .all-apps-link {
+        margin-left: 15px;
+        margin-right: 0px;
+    }
+
+    .office-links {
+        right: auto;
+        left: 220px;
+    }
+
+    fluent-dialog::part(positioning-region) {
+        right: unset;
+        left: 0px;
+    }
+`,se=ae.a`
+    .apps-module-tiles {
+        margin-left: 0px;
+        margin-right: 8px;
+    }
+
+    .apps-module-heading {
+        margin-left: 0px;
+        margin-right: 18px;
+    }
+
+    .waffle-button {
+        right: 44px;
+        left: auto;
+    }
+
+    .all-apps-link {
+        margin-left: 0px;
+        margin-right: 15px;
+    }
+
+    .office-links {
+        right: 220px;
+        left: auto;
+    }
+
+    fluent-dialog::part(positioning-region) {
+        right: 0px;
+        left: unset;
+    }
+`,re=ae.a`
+    .apps-module-heading {
+        font-size: 14px;
+        font-family: SegoeUI-SemiBold-final,Segoe UI Semibold;
+        display: inline-block;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+
+    .waffle-button {
+        color: ${ie.w.var}
+        position: fixed;
+        width: 32px;
+        background: none;
+    }
+
+    .waffle-button::part(control) {
+        background: none;
+    }
+
+    .waffle-button:hover {
+        background: ${ie.o.var};
+    }
+
+    .waffle-button.img {
+        color: #fff;
+    }
+
+    .waffle-button.img:hover {
+        background-color: rgba(17,17,17,0.8);
+    }
+
+    .waffle-button.text {
+        background: rgba(0, 0, 0, 0.24);
+        border-radius: 4px;
+        width: 87px;
+    }
+
+    .waffle-button-icon {
+        fill: inherit;
+    }
+
+    .waffle-dialog {
+        display: none;
+    }
+
+    .arrow-icon {
+        fill: ${ie.h.var};
+        height: 13px;
+        viewBox: "0 0 14 13";
+        width: 14px;
+        margin-left: 12px;
+        text-decoration: none;
+    }
+
+    .waffle-dialog-expanded {
+        display: block;
+        position: relative;
+        user-select: none;
+    }
+
+    .all-apps-link svg{
+        text-decoration: none;
+    }
+
+    .all-apps-link {
+        position: relative;
+        display: inline-flex;
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .office-links {
+        position: absolute;
+        top: 5px;
+        display: flex;
+        font-size: 12px;
+    }
+
+    .apps-module-tiles {
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+
+    app-link::slotted(svg) {
+        width: 22px;
+        height: 22px;
+    }
+
+    .app-link {
+        cursor: pointer;
+        float: left;
+        height: 38px;
+        padding: 0;
+        position: relative;
+        width: 146px;
+    }
+
+    .app-link::part(control) {
+        justify-content: flex-start;
+    }
+
+    .app-link:hover {
+        border-color: #f4f4f4;
+        transition: border-color .167s linear,box-shadow .167s linear;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,.1);
+    }
+
+    .app-title {
+        line-height: 38px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    fluent-dialog::part(control) {
+        width: 320px;
+        position: relative;
+        z-index: ${ne};
+        height:auto;
+    }
+    
+    fluent-dialog::part(positioning-region) {
+        position: relative;
+        bottom: auto;
+        overflow: initial;
+    }
+
+    fluent-dialog::part(overlay) {
+        background: none;
+    }
+`.withBehaviors(ie.M,ie.z,ie.v,ie.w,new ee.a(le,se),Object(te.b)(ae.a`
+                .waffle-button:hover {
+                    background: ${ie.o.var};
+                }
+            `)),pe={experienceConfigSchema:r}},S35a:function(e,t,i){"use strict";i.d(t,"a",(function(){return b}));var o=i("D57K"),a=i("QBS5"),n=i("P4Ao"),l=i("xQNS"),s=i("6BDD"),r=i("+53S"),p=i("UauI"),c=i("C5kU");const f=s.b`
+    <a
+        class="control"
+        part="control"
+        download="${e=>e.download}"
+        href="${e=>e.href}"
+        hreflang="${e=>e.hreflang}"
+        ping="${e=>e.ping}"
+        referrerpolicy="${e=>e.referrerpolicy}"
+        rel="${e=>e.rel}"
+        target="${e=>e.target}"
+        type="${e=>e.type}"
+        aria-atomic="${e=>e.ariaAtomic}"
+        aria-busy="${e=>e.ariaBusy}"
+        aria-controls="${e=>e.ariaControls}"
+        aria-current="${e=>e.ariaCurrent}"
+        aria-describedBy="${e=>e.ariaDescribedby}"
+        aria-details="${e=>e.ariaDetails}"
+        aria-disabled="${e=>e.ariaDisabled}"
+        aria-errormessage="${e=>e.ariaErrormessage}"
+        aria-expanded="${e=>e.ariaExpanded}"
+        aria-flowto="${e=>e.ariaFlowto}"
+        aria-haspopup="${e=>e.ariaHaspopup}"
+        aria-hidden="${e=>e.ariaHidden}"
+        aria-invalid="${e=>e.ariaInvalid}"
+        aria-keyshortcuts="${e=>e.ariaKeyshortcuts}"
+        aria-label="${e=>e.ariaLabel}"
+        aria-labelledby="${e=>e.ariaLabelledby}"
+        aria-live="${e=>e.ariaLive}"
+        aria-owns="${e=>e.ariaOwns}"
+        aria-relevant="${e=>e.ariaRelevant}"
+        aria-roledescription="${e=>e.ariaRoledescription}"
+        ${Object(r.b)("control")}
+    >
+        ${c.c}
+        <span class="content" part="content">
+            <slot ${Object(p.b)("defaultSlottedContent")}></slot>
+        </span>
+        ${c.b}
+    </a>
+`;var d=i("4X57"),g=i("vHfj"),h=i("57ob");const C=d.a`
+  ${g.b}
+`.withBehaviors(Object(h.a)("accent",g.a),Object(h.a)("hypertext",g.c),Object(h.a)("lightweight",g.d),Object(h.a)("outline",g.e),Object(h.a)("stealth",g.f));let b=class extends l.a{appearanceChanged(e,t){e!==t&&(this.classList.add(t),this.classList.remove(e))}connectedCallback(){super.connectedCallback(),this.appearance||(this.appearance="neutral")}defaultSlottedContentChanged(){const e=this.defaultSlottedContent.filter(e=>e.nodeType===Node.ELEMENT_NODE);1===e.length&&e[0]instanceof SVGElement?this.control.classList.add("icon-only"):this.control.classList.remove("icon-only")}};Object(o.e)([a.b],b.prototype,"appearance",void 0),b=Object(o.e)([Object(n.b)({name:"fluent-anchor",template:f,styles:C,shadowOptions:{delegatesFocus:!0,mode:"closed"}})],b)},xQNS:function(e,t,i){"use strict";i.d(t,"a",(function(){return c}));var o=i("D57K"),a=i("P4Ao"),n=i("QBS5"),l=i("oePG"),s=i("uXNP"),r=i("C5kU"),p=i("6fxl");class c extends a.a{}Object(o.e)([n.b],c.prototype,"download",void 0),Object(o.e)([n.b],c.prototype,"href",void 0),Object(o.e)([n.b],c.prototype,"hreflang",void 0),Object(o.e)([n.b],c.prototype,"ping",void 0),Object(o.e)([n.b],c.prototype,"referrerpolicy",void 0),Object(o.e)([n.b],c.prototype,"rel",void 0),Object(o.e)([n.b],c.prototype,"target",void 0),Object(o.e)([n.b],c.prototype,"type",void 0),Object(o.e)([l.d],c.prototype,"defaultSlottedContent",void 0);class f{}Object(o.e)([Object(n.b)({attribute:"aria-expanded",mode:"fromView"})],f.prototype,"ariaExpanded",void 0),Object(p.a)(f,s.a),Object(p.a)(c,r.a,f)}}]);

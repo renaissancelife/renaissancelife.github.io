@@ -1,0 +1,832 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["sports-olympic-card-wc"],{"0hJ9":function(t,e,a){"use strict";var i=a("v6nU");e.a=function(t){return"number"==typeof t&&t==Object(i.a)(t)}},AQSF:function(t,e,a){"use strict";a.r(e),a.d(e,"ToolingInfo",(function(){return E})),a.d(e,"SportsOlympicCardWC",(function(){return b})),a.d(e,"SportsOlympicCardWCTemplate",(function(){return D})),a.d(e,"SportsOlympicCardWCStyles",(function(){return z}));var i=a("A03o"),r=a("akWC"),n=a("C49W"),o=a("Zn5T");const c=Object(i.a)(o.a.sportsOlympicCardWC,"Sports Olympic Card Web Component experience",Object.assign(Object.assign(Object.assign({},Object(r.a)({sportsSeeMore:"See More",olympicSeeMore:"See more on Olympics.com",sportsMoreSetting:"More settings",sportsActionButton:"More options",sportsNotInterested:"Not interested in {0}",sportsHideCard:"Hide sports card",sportsOlympicHeader:"Summer games 2020",olympicMedalTitle:"Medal count",olympicTotal:"Total",olympicName:"Summer Games"})),Object(n.c)("enableCardAction","show action button in olympic card")),Object(n.c)("enableHideCard","show hide olympic card menu in action menus")));var d=a("D57K"),s=a("kpPY"),l=a("IqCT"),p=a("Gsg7"),u=a("Am8i"),h=a("u5KZ"),m=a("0QZK"),y=a("oePG"),g=a("W3y6"),v=a("ZwaX");class b extends l.a{constructor(){super(...arguments),this.isActionMenuOpen=!1,this.handleClickForActionMenu=t=>{t&&(t.target instanceof b||this.actionButtonControl&&this.actionButtonControl.contains(t.path[0]))||this.toggleActionMenu(null)},this.handleKeyDownForActionMenu=t=>{"Escape"!==t.code?this.handleClickForActionMenu(t):this.toggleActionMenu(t)},this.handleNotInterested=()=>Object(d.b)(this,void 0,void 0,(function*(){var t,e,a,i;if(this.isActionMenuOpen=!1,Object(s.b)(null===(t=this.olympicData)||void 0===t?void 0:t.primaryEntityId))return;const r={id:null===(e=this.olympicData)||void 0===e?void 0:e.primaryEntityId,name:null===(a=this.olympicData)||void 0===a?void 0:a.primaryEntityName,type:null===(i=this.olympicData)||void 0===i?void 0:i.primaryEntityType};(yield g.a.notInterestedSportsCard(r))&&(this.refreshFeed?this.refreshFeed():this.$emit("refreshSDCardSection"))})),this.handleHideSports=()=>Object(d.b)(this,void 0,void 0,(function*(){this.isActionMenuOpen=!1;(yield g.a.hideSportsCard())&&(this.refreshFeed?this.refreshFeed():this.$emit("refreshSDCardSection"))})),this.handleMoreSettings=()=>{this.isActionMenuOpen=!1,this.goToPersonalizeCallback?this.goToPersonalizeCallback():this.$emit("goToPersonalizeCallback")}}experienceConnected(){this.telemetryObject||(this.telemetryObject=new p.a({name:v.b.OlympicCard,type:u.f.Module})),this.initialOlympicData(),this.initActionMenuItems()}disconnectedCallback(){super.disconnectedCallback()}getExperienceType(){return o.a.sportsOlympicCardWC}actionButtonClickHandler(t){t&&(t.preventDefault(),h.a.sendActionEvent(t.target,u.b.Click,u.c.Customize)),this.toggleActionMenu(t,!this.isActionMenuOpen)}toggleActionMenu(t,e=!1){this.isActionMenuOpen=e,e&&t?(this.actionButtonControl=t&&t.currentTarget,document.addEventListener("click",this.handleClickForActionMenu),document.addEventListener("keydown",this.handleKeyDownForActionMenu)):(this.actionButtonControl=null,document.removeEventListener("click",this.handleClickForActionMenu),document.removeEventListener("keydown",this.handleKeyDownForActionMenu))}initialOlympicData(){var t;this.olympicData&&this.olympicData.olympicCardData&&this.strings&&(this.cardType=this.olympicData.olympicCardData.cardType,this.olympicData.olympicCardData.headerTitle=(null===(t=this.strings.sportsOlympicHeader)||void 0===t?void 0:t.toLocaleUpperCase())||"SUMMER GAMES 2020",this.olympicData.olympicCardData.seeMoreText=this.strings.olympicSeeMore||"See more on Olympics.com",this.olympicData.olympicCardData.olympicMedalData&&(this.olympicData.olympicCardData.olympicMedalData.medalTitle=this.strings.olympicMedalTitle||"Medal count",this.olympicData.olympicCardData.olympicMedalData.total=this.strings.olympicTotal||"Total"),this.telemetryContext=Object(v.k)(this.telemetryObject,this.olympicData.olympicCardData.cardType,this.olympicData.olympicCardData.olympicResultsData,this.olympicData.olympicCardData.olympicMedalData,this.olympicData.olympicCardData.headerTitle,this.olympicData.olympicCardData.headerTitleUrl,this.olympicData.olympicCardData.seeMoreUrl),this.olympicData.olympicCardData.olympicMedalData&&this.telemetryContext&&this.telemetryContext.content&&(this.olympicData.olympicCardData.olympicMedalData.medalTelemetryTag=this.telemetryContext.content.getMetadataTag()))}initActionMenuItems(){this.config.enableCardAction&&this.olympicData&&(this.actionMenuItems=[],!this.config.enableHideCard||Object(s.b)(this.strings.sportsNotInterested)||Object(s.b)(this.olympicData.primaryEntityId)||this.actionMenuItems.push({glyph:m.cb,title:Object(s.a)(this.strings.sportsNotInterested,this.strings.olympicName),id:"dislike",telemetryTag:this.telemetryContext&&this.telemetryContext.menuHideCard&&this.telemetryContext.menuHideCard.getMetadataTag(),onClick:()=>Object(d.b)(this,void 0,void 0,(function*(){this.handleNotInterested()}))}),this.config.enableHideCard&&!Object(s.b)(this.strings.sportsHideCard)&&this.actionMenuItems.push({glyph:m.cb,title:this.strings.sportsHideCard,id:"hide",telemetryTag:this.telemetryContext&&this.telemetryContext.menuHideOlympics&&this.telemetryContext.menuHideOlympics.getMetadataTag(),onClick:()=>Object(d.b)(this,void 0,void 0,(function*(){this.handleHideSports()}))}),this.actionMenuItems.push({glyph:m.Xb,id:"more",title:this.strings.sportsMoreSetting||"More settings",telemetryTag:this.telemetryContext&&this.telemetryContext.menuMoreSettings&&this.telemetryContext.menuMoreSettings.getMetadataTag(),onClick:()=>Object(d.b)(this,void 0,void 0,(function*(){this.handleMoreSettings()}))}))}}Object(d.e)([y.d],b.prototype,"telemetryContext",void 0),Object(d.e)([y.d],b.prototype,"cardType",void 0),Object(d.e)([y.d],b.prototype,"actionMenuItems",void 0),Object(d.e)([y.d],b.prototype,"isActionMenuOpen",void 0);var f=a("6BDD"),C=a("6vBc"),O=a("a7PV"),x=a("eUhr"),S=a("vmYD"),w=a("m1Vi"),M=a("bica");w.b,M.b,O.a,S.a;const j=f.b`
+    <msn-actions-menu 
+        :referrerButton=${t=>t.actionButtonControl}
+        :menuItems=${t=>t.actionMenuItems}
+        defaulthorizontalposition="start"
+    />
+`,D=f.b`
+    <fluent-design-system-provider
+        neutral-base-color="#007FA8"
+        style="padding: 0; width: 100%; height: 100%; margin: 0;"
+    >
+        <msft-sports-olympics-card
+            id="${t=>t.id}"
+            cardType=${t=>t.cardType}
+            clickthrough-target=${t=>t.openLinksInNewTab?"_blank":"_self"}
+            :headerTitle="${t=>t.olympicData&&t.olympicData.olympicCardData&&t.olympicData.olympicCardData.headerTitle}"
+            :headerTitleUrl="${t=>t.olympicData&&t.olympicData.olympicCardData&&t.olympicData.olympicCardData.headerTitleUrl}"
+            :seeMoreText="${t=>t.olympicData&&t.olympicData.olympicCardData&&t.olympicData.olympicCardData.seeMoreText}"
+            :seeMoreUrl="${t=>t.olympicData&&t.olympicData.olympicCardData&&t.olympicData.olympicCardData.seeMoreUrl}"
+            :olympicsResultsData="${t=>t.olympicData&&t.olympicData.olympicCardData&&t.olympicData.olympicCardData.olympicResultsData}"
+            :olympicsMedalData="${t=>t.olympicData&&t.olympicData.olympicCardData&&t.olympicData.olympicCardData.olympicMedalData}"
+            ${Object(x.b)(t=>t.telemetryContext&&t.telemetryContext.olympicCard&&t.telemetryContext.olympicCard.getMetadataTag())}
+            :headerTelemetryTag=${t=>t.telemetryContext&&t.telemetryContext.header&&t.telemetryContext.header.getMetadataTag()}
+            :seeMoreTelemetryTag=${t=>t.telemetryContext&&t.telemetryContext.seeMore&&t.telemetryContext.seeMore.getMetadataTag()}
+        />
+        ${Object(C.a)(t=>t.actionButtonClickHandler&&t.config.enableCardAction,f.b`
+            <fluent-button
+                slot="more-actions"
+                appearance="neutral"
+                @click="${(t,e)=>t.actionButtonClickHandler(e.event)}"            
+                title="${t=>t.strings&&t.strings.sportsActionButton||"More options"}"
+                aria-label="${t=>t.strings&&t.strings.sportsActionButton||"More options"}"
+                ${Object(x.b)(t=>t.telemetryContext&&t.telemetryContext.actionButton&&t.telemetryContext.actionButton.getMetadataTag())}
+            >
+                ${m.q}
+            </fluent-button>
+        `)}
+    </fluent-design-system-provider>
+    ${Object(C.a)(t=>t.isActionMenuOpen,j)}
+`;var $=a("4X57"),T=a("CzTk"),U=a("oqLQ");const k=$.a`
+    .more-actions {
+        right: 16px;
+        left: auto;
+    }
+`,A=$.a`
+    .more-actions {
+        left: 16px;
+        right: auto;
+    }
+`,z=$.a`
+    .sports-olympic-wc {
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: currentColor;
+    }
+    `.withBehaviors(new T.a(k,A),Object(U.c)($.a`
+                :host {
+                    forced-color-adjust: auto;
+                }
+            `)),E={experienceConfigSchema:c}},CgWR:function(t,e,a){"use strict";var i;a.d(e,"a",(function(){return i})),function(t){t.HoroscopeCard="horoscopeCardEnabled",t.WeatherCard="weatherCardEnabled",t.SportsCard="sportsCardEnabled",t.MoneyCard="moneyCardEnabled",t.FinanceCard="financeCardEnabled",t.OnThisDayCard="onThisDayCardEnabled",t.ShoppingCard="shoppingCardEnabled",t.TrafficCard="trafficCardEnabled",t.EsportsCard="esportsCardEnabled",t.EsportsLiveStreamCard="esportsLiveStreamCardEnabled",t.ElectionsCard="genericElectionCardEnabled",t.LotteryCard="lotteryCardEnabled",t.QnaCard="qnaCardEnabled",t.RecipesCard="recipeCardEnabled"}(i||(i={}))},Fpjf:function(t,e,a){"use strict";a.d(e,"d",(function(){return c})),a.d(e,"e",(function(){return d})),a.d(e,"c",(function(){return s})),a.d(e,"a",(function(){return l})),a.d(e,"b",(function(){return p})),a.d(e,"h",(function(){return u})),a.d(e,"g",(function(){return h})),a.d(e,"f",(function(){return y}));var i=a("aHCm"),r=a("HDSB"),n=a("0hJ9");let o;var c,d;!function(t){t.JPG="jpg",t.PNG="png"}(c||(c={})),function(t){t[t.None=0]="None",t[t.Letterbox=1]="Letterbox",t[t.Scale=2]="Scale",t[t.Stretch=3]="Stretch",t[t.Crop=4]="Crop",t[t.FocalCrop=5]="FocalCrop",t[t.FacialCrop=6]="FacialCrop"}(d||(d={}));const s=90,l="www.bing.com/th",p=new RegExp(/bing.(com|net)\/th/);function u(t,e){return h(i.a.prod+t,e)}function h(t,e){if(t&&p.test(t))return y(t,e);const{focalRegion:a,backgroundColor:i}=e;let{width:d=0,height:s=0,format:l=c.JPG}=e,u="";if(a){const t=g(a.x1,a.x2),e=g(a.y1,a.y2);null!=t&&null!=e&&(u+=`&x=${t}&y=${e}`)}i&&(u+="&b="+i);const h=null==e.mode?6:e.mode;if(6===h&&(u+="&u=t"),e.enableDpiScaling){if(!e.devicePixelRatio)throw new Error("A valid devicePixelRatio value must be provided when DPI scaling is enabled");const t=function(t){if(Object(r.a)()&&o)return o;if(t<1)return null;let e=t;Object(n.a)(4*e)||(e=Math.ceil(10*e)/10);e>3&&(e=3);Object(r.a)()&&(o=e);return e}(e.devicePixelRatio);t&&(d=Math.round(d*t),s=Math.round(s*t))}return`${t}?w=${d}&h=${s}&q=${e.quality||60}&m=${h}&f=${l}${u}`}function m(t,e){const{width:a=0,height:i=0}=e,r=e.quality||s;return t.searchParams.set("w",""+a),t.searchParams.set("h",""+i),t.searchParams.set("qlt",""+r),t.searchParams.set("c","1"),t.searchParams.set("rs","1"),e.enableDpiScaling&&(t.searchParams.set("dpr",""+e.devicePixelRatio),t.searchParams.set("p","0")),t}function y(t,e){try{return m(new URL(t),e).href}catch(a){const i=m(new URL("https://"+t),e);return`//${i.host}${i.pathname}${i.search}`}}function g(t,e){if(null!=t&&null!=e)return Math.floor((t+e)/2)}},W3y6:function(t,e,a){"use strict";a.d(e,"a",(function(){return i}));var i,r=a("D57K"),n=a("Fpjf"),o=a("Ybri"),c=a("rvYQ"),d=a("I6Lx"),s=a("msIb"),l=a("KETb"),p=a("6ADy"),u=a("HxRh"),h=a("XlyT"),m=a("fuIx"),y=a("e8jz"),g=a("tERu"),v=a("ZwaX"),b=a("u5KZ"),f=a("/+Un"),C=a("kpPY"),O=a("hSGL"),x=a("CgWR");!function(t){t.sportsApi="https://api.sports.microsoft.com/SportsReco/v1/SportsRecommendation?apikey=be5b9e52150e49f1b58fafff97d11487";const e={width:32,height:32,enableDpiScaling:!1,format:n.d.PNG};let a,i;function S(t,e,a,i,n=null,o=!1,c=null){return Object(r.b)(this,void 0,void 0,(function*(){if(Object(C.b)(t))return null;const d=t,m={Title:e},y={method:"POST",body:JSON.stringify({actionType:a,targetId:d,targetType:i,metadata:m}),headers:yield s.a.getOneServiceHeaders()};j()&&(y.credentials="include");const g=Object(p.d)("graph/actions");let v;(yield M(n,o)).forEach(t=>t.value&&g.searchParams.set(t.key,t.value)),c&&c.forEach(t=>t.value&&g.searchParams.set(t.key,t.value));try{return v=yield Object(l.a)(()=>Object(r.b)(this,void 0,void 0,(function*(){const t=yield fetch(g.href,y);if(t.status>=400){const e=`postActionRequest OneService returned error response. Status: ${t.status} for actionType: ${a}, targetId: ${d}, targetType: ${i}`;throw new Error(e)}return t.json()})),"postCardAction"+a),yield v}catch(t){Object(h.c)(t,u.wi,"Error while posting action for card interest action","Url: "+g.href)}return v}))}function w(){return Object(r.b)(this,void 0,void 0,(function*(){const t=yield function(){return Object(r.b)(this,void 0,void 0,(function*(){const t={method:"GET",headers:yield s.a.getOneServiceHeaders()};j()&&(t.credentials="include");const e=Object(p.d)("graph/actions");let a;(yield M()).forEach(t=>t.value&&e.searchParams.set(t.key,t.value)),e.searchParams.set("$top","100");try{return a=yield Object(l.a)(()=>Object(r.b)(this,void 0,void 0,(function*(){const a=yield fetch(e.href,t);if(a.status>=400){const t="getActionRequest OneService returned error response. Status: "+a.status;throw new Error(t)}return a.json()})),"getCardAction"),yield a}catch(t){return Object(h.c)(t,u.wi,"Error while getting action for card interest action","Url: "+e.href),null}}))}();t&&t.value&&t.value.length?function(t){if(!t)return;a=[],i=[];const e=t.filter(t=>null!=t&&0===t.actionType.localeCompare(v.a.Dislike,void 0,{sensitivity:"accent"})&&(0===t.targetType.localeCompare(v.d.League,void 0,{sensitivity:"accent"})||0===t.targetType.localeCompare(v.d.Team,void 0,{sensitivity:"accent"}))),r=t.filter(t=>null!=t&&0===t.actionType.localeCompare(v.a.Follow,void 0,{sensitivity:"accent"})&&(0===t.targetType.localeCompare(v.d.League,void 0,{sensitivity:"accent"})||0===t.targetType.localeCompare(v.d.Team,void 0,{sensitivity:"accent"})));e.length>0&&e.forEach(t=>{t.metadata&&t.metadata.Title&&a.push({id:t.targetId,name:t.metadata.Title,type:t.targetType})});r.length>0&&r.forEach(t=>{var e;i.push({id:t.targetId,name:null===(e=t.metadata)||void 0===e?void 0:e.Title,type:t.targetType})})}(t.value):t&&(a=[],i=[])}))}function M(t=null,e=!0){return Object(r.b)(this,void 0,void 0,(function*(){return j()?s.a.getOneServiceParamsWithAuth(Object(c.c)().UserId,t||"Peregrine",e):s.a.getOneServiceParamsWithoutAuth(Object(c.c)().UserId,t||"Peregrine",e)}))}function j(){return Object(r.b)(this,void 0,void 0,(function*(){return!!d.b.UserIsSignedIn||(yield Object(f.d)())===g.c.SignedIn}))}function D(t){const e="undefined"!=typeof window&&Object(m.b)()&&Object(y.b)(),a=e?e.market||"en-us":Object(c.c)().CurrentMarket||"en-us",i=e?e.anid:Object(c.c)().UserId,r=e?e.latitude:Object(c.c)().Latitude,n=e?e.longitude:Object(c.c)().Longitude;t.set("market",a),Object(C.b)(i)||t.set("user",i),r&&n&&(t.set("lat",r),t.set("long",n))}t.fetchSports=function(){return Object(r.b)(this,void 0,void 0,(function*(){const e=t.sportsApi;if(Object(o.a)(e)){const t=new URL(e),a=yield s.a.getBaseRequestData("GET");D(t.searchParams);try{const e=yield Object(l.a)(()=>Object(r.b)(this,void 0,void 0,(function*(){const e=yield fetch(decodeURIComponent(t.href),a);if(!e.ok)throw b.a.sendAppErrorEvent(Object.assign(Object.assign({},u.vi),{message:"Error while calling fetch for sports data ",pb:Object.assign(Object.assign({},u.vi.pb),{fetchNetworkResponse:{statusCode:e.status,statusText:e.statusText,activityId:Object(c.c)().ActivityId,requestUrl:t.href,requestHeaders:JSON.stringify(a&&a.headers)},customMessage:`URL: ${t.href}, responseMessage: ${JSON.stringify(e)}`})})),Error(e.statusText);return e})),"FetchSports");return yield e.json()}catch(e){let i;a&&a.headers&&(i=a.headers),b.a.sendAppErrorEvent(Object.assign(Object.assign({},u.ui),{message:"Error while request sports data with exception.",pb:Object.assign(Object.assign({},u.ui.pb),{fetchNetworkResponse:{activityId:Object(c.c)().ActivityId,requestUrl:t.href,requestHeaders:JSON.stringify(a&&a.headers)},customMessage:`Error: ${e} URL: ${t.href} headers: ${JSON.stringify(i)}`})}))}}}))},t.fetchSportsFeed=function(t=null,e=null,a=!1,i=!0,n=!1,d=null){return Object(r.b)(this,void 0,void 0,(function*(){const p=t;if(Object(o.a)(p)){const t=new URL(p),o=yield s.a.getBaseRequestData("GET");if(i){D(t.searchParams);(yield M(e,a)).forEach(e=>e.value&&t.searchParams.set(e.key,e.value))}if(n){const e="undefined"!=typeof window&&Object(m.b)()&&Object(y.b)(),a=e?e.market:Object(c.c)().CurrentMarket;t.searchParams.set("market",a)}d&&d.length&&d.forEach(e=>{e.value&&t.searchParams.set(e.key,e.value)});try{const e=yield Object(l.a)(()=>Object(r.b)(this,void 0,void 0,(function*(){const e=yield fetch(decodeURIComponent(t.href),i?o:null);if(!e.ok)throw b.a.sendAppErrorEvent(Object.assign(Object.assign({},u.vi),{message:"Error while calling fetch sports feed data.",pb:Object.assign(Object.assign({},u.vi.pb),{fetchNetworkResponse:{statusCode:e.status,statusText:e.statusText,activityId:Object(c.c)().ActivityId,requestUrl:t.href,requestHeaders:JSON.stringify(o&&o.headers)},customMessage:`Error while calling fetch sports feed data: URL: ${t.href}, responseMessage: ${JSON.stringify(e)}`})})),Error(e.statusText);return e})),"FetchSportsFeed");return yield e.json()}catch(e){b.a.sendAppErrorEvent(Object.assign(Object.assign({},u.ui),{message:"Error while request sports feed data with exception.",pb:Object.assign(Object.assign({},u.ui.pb),{fetchNetworkResponse:{activityId:Object(c.c)().ActivityId,requestUrl:t.href,requestHeaders:JSON.stringify(o&&o.headers)},customMessage:`Error while request sports feed data with exception: ${e} URL: ${t.href} headers: ${(null==o?void 0:o.headers)&&JSON.stringify(null==o?void 0:o.headers)}`})}))}}}))},t.hideSportsCard=function(){return Object(r.b)(this,void 0,void 0,(function*(){try{return yield O.a.updateSegmentCardsEnableStatus([{cardType:x.a.SportsCard,enabled:!1}]),!0}catch(t){return Object(h.c)(t,u.wi,"Sports card settings save failed while hide sports card."),!1}}))},t.notInterestedSportsCard=function(t){return Object(r.b)(this,void 0,void 0,(function*(){if(!t||Object(C.b)(t.id))return!1;try{return yield S(t.id,t.name,v.a.Dislike,t.type||""),!0}catch(e){return Object(h.c)(e,u.wi,"Sports card settings save failed while dislike sports card leagueId: "+t.leagueId),!1}}))},t.removeDislikeSportsCard=function(t){return Object(r.b)(this,void 0,void 0,(function*(){if(!t||Object(C.b)(t.id))return!1;try{return yield function(t,e,a){return Object(r.b)(this,void 0,void 0,(function*(){if(!t||Object(C.b)(t.id))return null;const i=t.id,n={method:"DELETE",headers:yield s.a.getOneServiceHeaders()};j()&&(n.credentials="include");const o=Object(p.d)("graph/actions");let c;(yield M()).forEach(t=>t.value&&o.searchParams.set(t.key,t.value));try{return c=yield Object(l.a)(()=>Object(r.b)(this,void 0,void 0,(function*(){const t=yield fetch(`${o.href}&$filter=actionType+eq+'${e}'+and+targetId+eq+'${i}'+and+targetType+eq+'${a}'`,n);if(t.status>=400){const r=`deleteActionRequest OneService returned error response. Status: ${t.status} for actionType: ${e}, targetId: ${i}, targetType: ${a}`;throw new Error(r)}return t})),"deleteCardAction"+e),yield c}catch(t){Object(h.c)(t,u.wi,"Error while delete action for card interest action","Url: "+o.href)}}))}(t,v.a.Dislike,t.type||v.d.League),a=null,i=null,!0}catch(e){return Object(h.c)(e,u.wi,"Sports card settings save failed while remove dislike sports card leagueId: "+t.leagueId),!1}}))},t.getDislikeSportsEntities=function(t){w().then(()=>{a&&t(a)})},t.getFollowSportsEntities=function(t){w().then(()=>{i&&t(i)})},t.fetchSuggestions=function(a,i){return Object(r.b)(this,void 0,void 0,(function*(){const r=i.replace("{searchText}",a),n=Object(c.c)().CurrentMarket||"en-us",o=[];return yield t.fetchSportsFeed(r,null,!1,!1,!0).then(t=>{if(!t||!t.suggestionGroups||!t.suggestionGroups.length)return Object(h.b)(u.ni,"Fetch sports suggestion get null response.",`market=${n}, input:${a}, searchUrl:${r}`),o;if(!t.suggestionGroups[0].searchSuggestions||!t.suggestionGroups[0].searchSuggestions.length)return Object(h.b)(u.ni,"Fetch sports suggestion get empty groups.",`market=${n}, input:${a}, searchUrl:${r}`),o;let i=0;t.suggestionGroups[0].searchSuggestions.forEach(t=>{var a,r,c,d;if((null===(r=null===(a=t.entityPresentationInfo)||void 0===a?void 0:a.formattedFacts)||void 0===r?void 0:r.length)&&(null===(d=null===(c=t.entityPresentationInfo)||void 0===c?void 0:c.formattedFacts[0].items)||void 0===d?void 0:d.length)&&t.contractualRules.length){let a=t.richContent&&t.richContent.length&&t.richContent[0].webSearchUrl;a=a&&a.startsWith("/")?a:"/"+a;const r=t.richContent&&t.richContent.length&&t.richContent[0].screenshot&&t.richContent[0].screenshot.imageId;let c=r&&Object(v.g)(r,e);c=c&&c.startsWith("//")?"https:"+c:c,o.push({index:i++,id:t.entityPresentationInfo.formattedFacts[0].items[0].text,name:t.displayText,type:t.contractualRules[0].targetPropertyName,displayText:t.displayText,typeDisplayHint:t.entityPresentationInfo.entityTypeDisplayHint,webSearchUrl:a&&`https://${Object(v.j)(n)}/${n}${a}`,imageUrl:c})}})}),o}))},t.postActionRequest=S}(i||(i={}))},Z5nQ:function(t,e,a){"use strict";a.d(e,"a",(function(){return r})),a.d(e,"b",(function(){return n}));var i=a("4X57");const r=i.a`
+    .line-clamp {
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: var(--heading-max-lines, 3);
+    }
+`,n=i.a`
+    .sd-action:not([appearance="lightweight"]) {
+        --corner-radius: 999;
+        font-size: var(--type-ramp-minus-1-font-size);
+        line-height: var(--type-ramp-minus-1-line-height);
+    }
+
+    .sd-action::part(control) {
+        width: 100%;
+    }
+
+    .sd-action::part(content) {
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+`},ZwaX:function(t,e,a){"use strict";a.d(e,"e",(function(){return i})),a.d(e,"b",(function(){return c})),a.d(e,"d",(function(){return d})),a.d(e,"a",(function(){return s})),a.d(e,"f",(function(){return l})),a.d(e,"c",(function(){return p})),a.d(e,"l",(function(){return u})),a.d(e,"m",(function(){return m})),a.d(e,"k",(function(){return y})),a.d(e,"j",(function(){return g})),a.d(e,"i",(function(){return v})),a.d(e,"g",(function(){return b})),a.d(e,"h",(function(){return f}));var i,r=a("Fpjf"),n=a("Am8i"),o=a("kpPY");!function(t){t.SportsCard="SportsCard",t.Homepage="homepage",t.Game="sports_game",t.Header="sports_header",t.SeeMore="seemore",t.Customization="sportscard_customization",t.MoreSettings="sportscard_customization_moresettings",t.Vertical="sports",t.HideCard="HideSport",t.HideSports="HideSportsCard",t.SaveSetting="done",t.CancelSetting="Cancel",t.SportsInput="searchsports",t.SportsSuggest="suggestresult",t.SportsSuggestUrl="suggesturl",t.ConfidenceScoreKey="cs",t.PreviousMatch="previous",t.NextMatch="next",t.AddSports="FollowWizard",t.AddSportsMenu="FollowTeamOrLeague",t.FollowSports="Follow",t.GoBack="Goback",t.EditSports="FollowWizard"}(i||(i={}));const c={OlympicCard:"OlympicCard",Header:"olympic_header",SeeMore:"olympic_seemore",Customization:"olympiccard_customization",MoreSettings:"olympiccard_customization_moresettings",Vertical:"olympic",HideOlympics:"hide_olympic",HideCard:"hide_sports",Country:"country",Participant:"participant",MedalContent:"medal_content"},d={League:"League",Team:"Team"},s={Dislike:"Dislike",Follow:"Follow"},l={Match:"SportsMatch",Olympics:"SportsOlympics"},p="#",u=(t,e,a,r,o,c=!1,d=!1)=>{if(!(t&&e&&a&&r))return;const s=e||[],l=a||{},p=r.leagueName,u=r.leagueId,m=l.cardTitleClickthroughUrl,y=l.seeMoreClickthroughUrl,g=h(i.SportsCard,t,{category:p,headline:p},o),v=h(i.Header,t,{headline:p,id:u,type:n.d.StructuredData,category:p,destinationUrl:m},o),b=h(i.Customization,t,{headline:i.Customization,id:i.Customization,category:p},o),f=h(i.SeeMore,t,{headline:p,id:u,type:n.d.StructuredData,category:p,destinationUrl:y},o),C=h(i.MoreSettings,t,{category:p},o),O=h(i.HideCard,t,{category:p},o),x=h(i.HideSports,t,{category:p},o),S=new Map,w=new Map;s.forEach(e=>{if(!e.sportsMatchData.matchClickthroughUrl)return;const a=e.sportsMatchTelemetryData.gameId,r=e.sportsMatchData.gameStateCatetory,n=h(i.Game,t,{category:r,headline:p,gameId:a,destinationUrl:e.sportsMatchData.matchClickthroughUrl},o);S.set(e.sportsMatchData.matchClickthroughUrl,n.getMetadataTag()),w.set(a,n)});const M=h(i.SaveSetting,t,{headline:p,id:u,type:n.d.StructuredData,category:p},o),j=h(i.CancelSetting,t,{headline:p,id:u,type:n.d.StructuredData,category:p},o),D=h(i.SportsInput,t,{headline:p,id:u,type:n.d.StructuredData,category:p},o),$=h(i.SportsSuggest,t,{headline:p,id:u,type:n.d.StructuredData,category:p},o),T=c?h(i.PreviousMatch,t,{headline:p,id:u,type:n.d.StructuredData,category:p},o):null,U=c?h(i.NextMatch,t,{headline:p,id:u,type:n.d.StructuredData,category:p},o):null,k=d?h(i.AddSports,t,{headline:p,id:u,type:n.d.StructuredData,category:p},o):null,A=d?h(i.AddSportsMenu,t,{headline:p,id:u,type:n.d.StructuredData,category:p},o):null,z=d?h(i.FollowSports,t,{headline:p,id:u,type:n.d.StructuredData,category:p},o):null,E=d?h(i.GoBack,t,{headline:p,id:u,type:n.d.StructuredData,category:p},o):null,H=h(i.EditSports,t,{category:p,headline:p},o);return{componentRoot:t,sportsCard:g,destinations:S,games:w,header:v,actionButton:b,seeMore:f,menuMoreSettings:C,menuHideCard:O,menuHideSports:x,saveSetting:M,cancelSetting:j,sportsInput:D,sportsSuggest:$,previousMatch:T,nextMatch:U,addSports:k,menuAddSports:A,followSports:z,goBack:E,editSports:H}};function h(t,e,a,r){if(!e||!a||!a.category)return null;const o=e.addOrUpdateChild({name:i.SportsCard,type:n.f.Module}),c={contentVertical:i.Vertical,category:a.category};switch(t){case i.SportsCard:return o.addOrUpdateChild({name:i.SportsCard,content:{vertical:c.contentVertical,category:c.category,type:n.d.StructuredData,id:""},ext:r},a.savedChildObject);case i.Header:return o.addOrUpdateChild({name:i.Header,behavior:n.c.Navigate,destinationUrl:a.destinationUrl,content:{vertical:c.contentVertical,category:c.category,headline:a.headline,type:n.d.StructuredData,id:""},ext:r},a.savedChildObject);case i.SeeMore:return o.addOrUpdateChild({name:i.SeeMore,behavior:n.c.Navigate,destinationUrl:a.destinationUrl,content:{vertical:c.contentVertical,category:c.category,headline:a.headline,type:n.d.StructuredData,id:""},ext:r},a.savedChildObject);case i.Game:return o.addOrUpdateChild({name:i.Game,behavior:n.c.Navigate,destinationUrl:a.destinationUrl,content:{vertical:c.contentVertical,category:c.category,headline:a.headline,type:n.d.StructuredData,id:""},ext:r},a.savedChildObject);case i.Customization:return o.addOrUpdateChild({name:i.Customization,behavior:n.c.More,content:{headline:i.Customization,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.Interaction,ext:r},a.savedChildObject);case i.MoreSettings:return o.addOrUpdateChild({name:i.MoreSettings,content:{headline:i.MoreSettings,vertical:c.contentVertical,type:n.d.StructuredData,id:""},overrideDestinationUrl:(window.location.origin||"")+"/personalize",type:n.f.ActionButton,ext:r},a.savedChildObject);case i.HideCard:return o.addOrUpdateChild({name:i.HideCard,behavior:n.c.Hide,content:{headline:i.HideCard,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.ActionButton,ext:r},a.savedChildObject);case i.HideSports:return o.addOrUpdateChild({name:i.HideSports,behavior:n.c.Hide,content:{headline:i.HideSports,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.ActionButton,ext:r},a.savedChildObject);case i.PreviousMatch:return o.addOrUpdateChild({name:i.PreviousMatch,behavior:n.c.Navigate,content:{headline:i.PreviousMatch,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.ActionButton,ext:r},a.savedChildObject);case i.NextMatch:return o.addOrUpdateChild({name:i.NextMatch,behavior:n.c.Navigate,content:{headline:i.NextMatch,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.ActionButton,ext:r},a.savedChildObject);case i.SaveSetting:return o.addOrUpdateChild({name:i.SaveSetting,behavior:n.c.Save,content:{headline:i.SaveSetting,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.ActionButton,ext:r},a.savedChildObject);case i.CancelSetting:{const t=o.addOrUpdateChild({name:i.AddSports,action:n.b.View,type:n.f.Module});return t.addOrUpdateChild({name:i.CancelSetting,behavior:n.c.Cancel,content:{headline:i.CancelSetting,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.ActionButton,ext:r},t)}case i.SportsInput:return o.addOrUpdateChild({name:i.SportsInput,content:{headline:i.SportsInput,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.InputBox,ext:r},a.savedChildObject);case i.SportsSuggest:return o.addOrUpdateChild({name:i.SportsSuggest,content:{headline:i.SportsSuggest,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.AutoSuggest,ext:r},a.savedChildObject);case i.AddSports:return o.addOrUpdateChild({name:i.AddSports,action:n.b.View,type:n.f.Module});case i.AddSportsMenu:return o.addOrUpdateChild({name:i.AddSportsMenu,behavior:n.c.Open,content:{headline:i.AddSportsMenu,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.ActionButton,ext:r},a.savedChildObject);case i.FollowSports:return o.addOrUpdateChild({name:i.FollowSports,behavior:n.c.Follow,content:{headline:i.FollowSports,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.ActionButton,ext:r},a.savedChildObject);case i.GoBack:return o.addOrUpdateChild({name:i.GoBack,behavior:n.c.Navigate,content:{headline:i.GoBack,vertical:c.contentVertical,type:n.d.StructuredData,id:""},destinationUrl:"",type:n.f.Interaction,ext:r},a.savedChildObject);case i.EditSports:return o.addOrUpdateChild({name:i.EditSports,content:{vertical:c.contentVertical,category:c.category,type:n.d.StructuredData,id:""},ext:r},a.savedChildObject)}}const m=(t,e,a=!1)=>{if(!t||!e)return null;const r=t.addOrUpdateChild({name:a?i.AddSports:i.SportsCard,action:n.b.View,type:n.f.Module});return{componentRoot:t,webSearchUrl:r.addOrUpdateChild({name:i.SportsSuggestUrl,behavior:n.c.Navigate,content:{headline:i.SportsSuggestUrl,vertical:i.Vertical,category:e.name,type:n.d.StructuredData,id:""},overrideDestinationUrl:e.webSearchUrl}),followEntity:r.addOrUpdateChild({name:i.FollowSports,behavior:n.c.Follow,content:{headline:e.name,vertical:i.Vertical,category:e.name,type:n.d.StructuredData,id:e.id},destinationUrl:""})}},y=(t,e,a,i,r,o,d)=>{if(!t)return;const s=t.addOrUpdateChild({name:c.OlympicCard,type:n.f.Module}),l=s.addOrUpdateChild({name:c.OlympicCard,content:{vertical:c.Vertical,category:e,type:n.d.StructuredData,id:""}}),p=s.addOrUpdateChild({name:c.Header,behavior:n.c.Navigate,destinationUrl:o,content:{vertical:c.Vertical,category:e,type:n.d.StructuredData,headline:r,id:""}}),u=s.addOrUpdateChild({name:c.Customization,behavior:n.c.More,destinationUrl:"",type:n.f.Interaction,content:{headline:c.Customization,vertical:c.Vertical,category:e,type:n.d.StructuredData,id:""}}),h=s.addOrUpdateChild({name:c.SeeMore,behavior:n.c.Navigate,destinationUrl:d,content:{vertical:c.Vertical,category:e,headline:c.SeeMore,type:n.d.StructuredData,id:""}}),m=s.addOrUpdateChild({name:c.MoreSettings,type:n.f.ActionButton,overrideDestinationUrl:(window.location.origin||"")+"/personalize",content:{headline:c.MoreSettings,vertical:c.Vertical,category:e,type:n.d.StructuredData,id:""}}),y=s.addOrUpdateChild({name:c.HideCard,behavior:n.c.Hide,destinationUrl:"",type:n.f.ActionButton,content:{headline:c.HideCard,vertical:c.Vertical,category:e,type:n.d.StructuredData,id:""}}),g=s.addOrUpdateChild({name:c.HideOlympics,behavior:n.c.Hide,destinationUrl:"",type:n.f.ActionButton,content:{headline:c.HideOlympics,vertical:c.Vertical,category:e,type:n.d.StructuredData,id:""}}),v=new Map,b=new Map;let f;return i&&i.countryMedals&&(i.countryMedals.forEach(t=>{const a=s.addOrUpdateChild({name:c.Country,behavior:n.c.Navigate,destinationUrl:t.countryLink,content:{headline:t.country,vertical:c.Vertical,category:e,type:n.d.StructuredData,id:""}});v.set(t.countryLink,a)}),f=s.addOrUpdateChild({name:c.MedalContent,behavior:n.c.Navigate,destinationUrl:i.medalUrl,content:{headline:c.MedalContent,vertical:c.Vertical,category:e,type:n.d.StructuredData,id:""}})),a&&a.participants&&a.participants.forEach(t=>{const e=s.addOrUpdateChild({name:c.Participant,behavior:n.c.Navigate,destinationUrl:"",content:{headline:t.participant,vertical:c.Vertical,category:a.type,type:n.d.StructuredData,id:""}});b.set(t.participant,e)}),{olympicCard:l,countries:v,participants:b,header:p,actionButton:u,seeMore:h,menuMoreSettings:m,menuHideCard:y,menuHideOlympics:g,content:f}};function g(t){return"zh-cn"===t?"www.msn.cn":"www.msn.com"}function v(t,e,a=!1){return Object(o.b)(t)?a?Object(r.h)("BB1dV8FG",e):null:t.indexOf(".")>0?Object(r.g)(`${r.a}?id=${t}&pid=MSports`,e):Object(r.h)(t,e)}function b(t,e,a=!1){return Object(o.b)(t)?a?Object(r.h)("BB1dV8FG",e):null:Object(r.g)(`${r.a}?id=${t}&pid=MSports`,e)}function f(t,e,a=!1){return Object(o.b)(t)?a?Object(r.h)("BB1dV8FG",e):null:Object(r.g)(t,e)}},a7PV:function(t,e,a){"use strict";a.d(e,"a",(function(){return L}));var i=a("D57K"),r=a("P4Ao"),n=a("QBS5"),o=a("oePG"),c=a("6BDD");const d="1x_1y",s="Result",l="Medal",p=1,u=2,h=3,m="individual",y="team";class g extends r.a{constructor(){super(...arguments),this.cardLayout=d,this.clickthroughTarget="_blank"}}function v(t){switch(t){case p:return c.b`<svg
+                width="16"
+                height="20"
+                viewBox="0 0 16 20"
+                fill="red"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M1 1H4.85646L8 4.1977L11.2839 1H15L8 8L1 1Z"
+                    fill="#C68C1A"
+                />
+                <ellipse
+                    cx="8"
+                    cy="11.9998"
+                    rx="8"
+                    ry="7.99981"
+                    transform="rotate(-180 8 11.9998)"
+                    fill="url(#paint0_linear)"
+                />
+                <ellipse
+                    cx="8.00015"
+                    cy="11.9998"
+                    rx="5.6"
+                    ry="5.59986"
+                    fill="url(#paint1_linear)"
+                />
+                <defs>
+                    <linearGradient
+                        id="paint0_linear"
+                        x1="8"
+                        y1="4.00002"
+                        x2="8"
+                        y2="19.9996"
+                        gradientUnits="userSpaceOnUse"
+                    >
+                        <stop stop-color="#C08000" />
+                        <stop offset="1" stop-color="#E2A62E" />
+                    </linearGradient>
+                    <linearGradient
+                        id="paint1_linear"
+                        x1="8.00015"
+                        y1="6.3999"
+                        x2="8.00015"
+                        y2="17.5996"
+                        gradientUnits="userSpaceOnUse"
+                    >
+                        <stop stop-color="#C08000" />
+                        <stop offset="1" stop-color="#E2A62E" />
+                    </linearGradient>
+                </defs>
+            </svg>`;case u:return c.b`<svg
+                width="16"
+                height="20"
+                viewBox="0 0 16 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g clip-path="url(#clip0)">
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M1 1H4.85646L8 4.1977L11.2839 1H15L8 8L1 1Z"
+                        fill="#767676"
+                    />
+                    <ellipse
+                        cx="8"
+                        cy="11.9998"
+                        rx="8"
+                        ry="7.99981"
+                        fill="url(#paint0_linear1)"
+                    />
+                    <ellipse
+                        cx="7.99985"
+                        cy="11.9999"
+                        rx="5.6"
+                        ry="5.59986"
+                        transform="rotate(-180 7.99985 11.9999)"
+                        fill="url(#paint1_linear1)"
+                    />
+                </g>
+                <defs>
+                    <linearGradient
+                        id="paint0_linear1"
+                        x1="8"
+                        y1="4"
+                        x2="8"
+                        y2="19.9996"
+                        gradientUnits="userSpaceOnUse"
+                    >
+                        <stop stop-color="#A9A9A9" stop-opacity="0.99" />
+                        <stop offset="1" stop-color="#767676" />
+                    </linearGradient>
+                    <linearGradient
+                        id="paint1_linear1"
+                        x1="7.99985"
+                        y1="6.40001"
+                        x2="7.99985"
+                        y2="17.5997"
+                        gradientUnits="userSpaceOnUse"
+                    >
+                        <stop stop-color="#A9A9A9" stop-opacity="0.99" />
+                        <stop offset="1" stop-color="#767676" />
+                    </linearGradient>
+                    <clipPath id="clip0">
+                        <rect width="16" height="20" fill="white" />
+                    </clipPath>
+                </defs>
+            </svg>`;case h:return c.b`<svg
+                width="16"
+                height="20"
+                viewBox="0 0 16 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g clip-path="url(#clip3)">
+                    <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M1 1H4.85646L8 4.1977L11.2839 1H15L8 8L1 1Z"
+                        fill="#973A0C"
+                    />
+                    <ellipse
+                        cx="8"
+                        cy="11.9998"
+                        rx="8"
+                        ry="7.99981"
+                        fill="url(#paint0_linear2)"
+                    />
+                    <ellipse
+                        cx="7.99985"
+                        cy="11.9999"
+                        rx="5.6"
+                        ry="5.59986"
+                        transform="rotate(-180 7.99985 11.9999)"
+                        fill="url(#paint1_linear2)"
+                    />
+                </g>
+                <defs>
+                    <linearGradient
+                        id="paint0_linear2"
+                        x1="8"
+                        y1="4"
+                        x2="8"
+                        y2="19.9996"
+                        gradientUnits="userSpaceOnUse"
+                    >
+                        <stop stop-color="#D57D2C" />
+                        <stop offset="1" stop-color="#852C00" />
+                    </linearGradient>
+                    <linearGradient
+                        id="paint1_linear2"
+                        x1="7.99985"
+                        y1="6.40001"
+                        x2="7.99985"
+                        y2="17.5997"
+                        gradientUnits="userSpaceOnUse"
+                    >
+                        <stop stop-color="#D57D2C" />
+                        <stop offset="1" stop-color="#852C00" />
+                    </linearGradient>
+                    <clipPath id="clip3">
+                        <rect width="16" height="20" fill="white" />
+                    </clipPath>
+                </defs>
+            </svg>`;default:return null}}Object(i.e)([Object(n.b)({attribute:"card-layout"})],g.prototype,"cardLayout",void 0),Object(i.e)([n.b],g.prototype,"cardType",void 0),Object(i.e)([Object(n.b)({attribute:"clickthrough-target"})],g.prototype,"clickthroughTarget",void 0),Object(i.e)([o.d],g.prototype,"headerTitle",void 0),Object(i.e)([o.d],g.prototype,"headerTitleUrl",void 0),Object(i.e)([o.d],g.prototype,"seeMoreUrl",void 0),Object(i.e)([o.d],g.prototype,"seeMoreText",void 0),Object(i.e)([o.d],g.prototype,"olympicsResultsData",void 0),Object(i.e)([o.d],g.prototype,"olympicsMedalData",void 0),Object(i.e)([o.d],g.prototype,"matchTelemetryTags",void 0),Object(i.e)([o.d],g.prototype,"headerTelemetryTag",void 0),Object(i.e)([o.d],g.prototype,"seeMoreTelemetryTag",void 0);c.b`<svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14.82 8.7l.85-1.48-1.47-.85-.85 1.47 1.47.85z" />
+    <path d="M14.5 3.5v1.7h1.7V3.5h-1.7z" />
+    <path d="M12.49 17.38l2.01-1.16-.31-.54-2.01 1.16.3.54z" />
+    <path d="M17.38 10.17H18V7.84h-.62v2.33z" />
+    <path d="M15.67 14.2l.54.31 1.16-2.01-.54-.31-1.16 2z" />
+    <path d="M11.02 14.2v2.32h.62V14.2h-.62z" />
+    <path d="M14.2 15.68l1.47-1.48-.85-.85-1.47 1.48.85.85z" />
+    <path d="M14.2 11.02l1.47-1.48-.85-.85-1.47 1.48.85.85z" />
+    <path d="M13.34 12.5l-1.16-.31-.54 2.01 1.16.31.54-2.01z" />
+    <path d="M16.84 12.18l.54-2.01-1.16-.31-.54 2.01 1.16.31z" />
+    <path d="M16.21 5.2l-.54 2 1.17.32.54-2.01-1.17-.32z" />
+    <path d="M12.49 4.66l-.31 1.16 2.01.54.31-1.16-2.01-.54z" />
+    <path d="M5.82 4.12h-1.7v1.7h1.7v-1.7z" />
+    <path d="M1.47 6.98l1.48-.85-.85-1.47-1.48.85.85 1.47z" />
+    <path d="M14.5 1.8l-2-1.17-.32.54 2.01 1.16.32-.54z" />
+    <path d="M5.51.63L3.5 1.79l.3.54 2.02-1.16-.31-.54z" />
+    <path d="M10.17 0H7.84v.62h2.33V0z" />
+    <path d="M14.2 2.95l-2.02 1.17.31.54 2.02-1.17-.31-.54z" />
+    <path d="M12.18 1.17L10.17.63l-.32 1.16 2.02.54.3-1.16z" />
+    <path d="M8.14 3.5l-2-.55-.32 1.17 2.01.54.31-1.17z" />
+    <path d="M9.85 3.5l.31 1.16 2.02-.54-.31-1.17-2.02.54z" />
+    <path d="M7.84.63l-2.02.54.31 1.16 2.02-.54L7.84.63z" />
+    <path d="M3.8 2.95L1.8 3.5l.3 1.17 2.02-.54-.3-1.17z" />
+    <path d="M3.5 8.15l1.15-.3-.53-2.02-1.17.3.54 2.02z" />
+    <path d="M6.36 14.2l.85 1.47 1.47-.85-.85-1.47-1.47.85z" />
+    <path d="M11.02 16.53l-1.48-.86-.85 1.48 1.47.85.86-1.47z" />
+    <path d="M.62 7.84H0v2.32h.62V7.84z" />
+    <path d="M3.5 16.22l2 1.16.32-.54-2.02-1.16-.3.54z" />
+    <path d="M.62 12.5l1.16 2.01.54-.31-1.16-2.01-.54.3z" />
+    <path d="M3.5 8.15L1.47 7l-.31.54 2.01 1.16.31-.54z" />
+    <path d="M2.33 11.87l-.54-2.01-1.16.3.54 2.02 1.16-.3z" />
+    <path d="M4.66 12.5l.53 2.01 1.17-.31-.54-2.01-1.16.3z" />
+    <path d="M4.66 10.16L3.18 8.7l-.85.85 1.47 1.47.86-.85z" />
+    <path d="M2.33 14.2l1.47 1.47.85-.85-1.47-1.47-.85.85z" />
+    <path d="M6.36 16.53L7.83 18l.85-.85-1.47-1.48-.85.86z" />
+    <path d="M11.02 14.2l-.86-.85-1.47 1.47.85.85 1.48-1.47z" />
+    <path d="M14.2 11.02l-.85 1.47 1.47.85.85-1.47-1.47-.85z" />
+    <path d="M12.8 14.5l-1.16 2.02.54.31 1.16-2.01-.54-.31z" />
+    <path d="M15.67 9.54l.54.31 1.16-2.01-.54-.32-1.16 2.02z" />
+    <path d="M9.85 1.79h-1.7v1.7h1.7v-1.7z" />
+    <path d="M11.87 2.96h2.32v-.63h-2.32v.63z" />
+    <path d="M6.13 2.33H3.8v.63h2.32v-.63h.01z" />
+    <path d="M4.66 12.5l-.86-1.48-1.47.85.85 1.48 1.48-.85z" />
+    <path d="M2.33 9.54L1.17 7.52l-.54.32 1.16 2.01.54-.31z" />
+    <path d="M4.66 14.82l1.16 2.02.54-.31-1.17-2.02-.53.31z" />
+    <path d="M15.56 15.61h.2v.5h.06v-.5h.2v-.04h-.46v.04z" />
+    <path
+        d="M16.5 15.56l-.16.4-.18-.4h-.08v.55h.06v-.43l.15.35h.07l.14-.36v.45h.06v-.55h-.06v-.01z"
+    />
+</svg>`;var b=a("kL0l"),f=a("4X57"),C=a("wHpb"),O=a("CzTk"),x=a("oqLQ"),S=a("sfV1");const w=f.a`
+    .header-action-button {
+        right: 12px;
+        left: unset;
+    }
+    ,
+    .score {
+        flex-direction: row;
+    }
+`,M=f.a`
+    .header-action-button {
+        left: 12px;
+        right: unset;
+    }
+    ,
+    .score {
+        flex-direction: row-reverse;
+    }
+`,j=f.a`
+    :host {
+        font-family: var(--body-font);
+    }
+
+    .olympics-card {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background: ${S.a.var};
+        padding: 12px 0;
+    }
+
+    .olympics-card a {
+        cursor: pointer;
+        color: currentcolor;
+        text-decoration: none;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        min-height: 24px;
+        padding: 0 16px;
+    }
+
+    ::slotted([slot="sports-header-icon"]) {
+        padding-inline-end: 6px;
+        margin-top: 6px;
+    }
+
+    .header-title {
+        color: currentcolor;
+        opacity: .83;
+        text-decoration: none;
+        font-weight: 500;
+        text-transform: uppercase;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-inline-end: 20px;
+    }
+
+    .header-action-button {
+        z-index: 2;
+        display: flex;
+        position: absolute;
+    }
+
+    .header-title:hover,
+    .header-title:active,
+    .header-title:${C.a} {
+        text-decoration: underline;
+        outline: none;
+    }
+
+    .data,
+    .team-data {
+        font-size: var(--type-ramp-minus-1-font-size);
+        line-height: var(--type-ramp-minus-1-line-height);
+        margin: 0px 12px;
+        border-radius: 4px;
+    }
+
+    .team-data {
+        display: grid;
+        grid-row-gap: 34px;
+    }
+
+    .result-group {
+        border-radius: 4px;
+        display: inline-grid;
+        text-decoration: none;
+        color: currentcolor;
+    }
+
+    .result-title {
+        padding: 8px 4px;
+        font-size: var(--type-ramp-minus-1-font-size);
+        line-height: var(--type-ramp-minus-1-line-height);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+
+    .result-header {
+        grid-template-columns: 222px auto;
+        align-items: center;
+        padding: 4px 0;
+        display: grid;
+    }
+
+    .medal-header,
+    .medal-line,
+    .participant,
+    .match-participant {
+        display: grid;
+        grid-column-gap: 12px;
+        align-items: center;
+    }
+
+    .medal-header {
+        grid-template-columns: 142px repeat(3, 16px) 36px;
+        padding: 4px 0;
+        align-items: center;
+    }
+
+    .result-header-title,
+    .medal-total {
+        text-transform: capitalize;
+        font-size: var(--type-ramp-minus-2-font-size);
+        line-height: var(--type-ramp-minus-2-line-height);
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+
+    .rank-index {
+        position: absolute;
+        color: white;
+        font-size: 11px;
+        height: 20px;
+        padding-top: 8px;
+    }
+    .medal-icon,
+    .medal-count,
+    .participant-rank,
+    .participant-score {
+        max-width: 30px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .participant .participant-score {
+        justify-content: flex-end;
+        width: auto;
+    }
+
+    .count-total {
+        font-weight: 500;
+        justify-content: flex-end;
+    }
+
+    .medal-line {
+        padding: 4px;
+        padding-block-end: 14px;
+        grid-template-columns: 16px 24px auto repeat(3, 16px) 34px;
+    }
+
+    .medal-line:last-child {
+        padding-block-end: 4px;
+    }
+
+    .medal-line-local {
+        font-weight: 600;
+    }
+
+    .participant {
+        padding-block-end: 20px;
+        grid-template-columns: 20px 24px auto 40px;
+    }
+
+    .medal-line,
+    .match-participant:first-child,
+    .winner {
+        font-weight: 600;
+    }
+
+    .participant:nth-of-type(4) {
+        border-top: 1px solid ${b.k.var};
+        padding-top: 8px;
+        padding-block-end: 8px;
+    }
+
+    .participant:nth-of-type(1) {
+        font-weight: 600;
+    }
+
+    .country-icon,
+    .participant-image {
+        width: 24px;
+        height: 16px;
+    }
+
+    .country-icon>img,
+    .participant-image>img {
+        width: 100%;
+    }
+
+    .medal-index,
+    .country-name,
+    .participant-name {
+        font-size: var(--type-ramp-base-font-size);
+        line-height: var(--type-ramp-base-line-height);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .medal-index {
+        text-align: center;
+    }
+
+    .result-match {
+        display: flex;
+        align-items: center;
+    }
+
+    .match-participant {
+        grid-template-columns: 24px 28px auto 40px;
+    }
+
+    .match-participants {
+        width: calc(100% - 64px);
+    }
+
+    .match-info {
+        font-size: var(--type-ramp-minus-1-font-size);
+        line-height: var(--type-ramp-minus-1-line-height);
+        width: 64px;
+        color: ${b.G.var};
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .match-state,
+    .match-date {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: center;
+        color: ${b.G.var};
+    }
+
+    .score {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .winner {
+        padding-inline-end: 4px;
+    }
+
+    .winner-tag {
+        padding-inline-end: 4px;
+        width: 5px;
+        height: 24px;
+    }
+
+    .winner-tag > svg > path {
+        fill: currentColor;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        height: 24px;
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        padding: 0px 16px;
+    }
+
+    ::slotted([slot="olympics-header-icon"]) {
+        width: 18px;
+        height: 18px;
+        padding-top: 8px;
+        fill: #ffffff;
+    }
+
+    ::slotted([slot="more-actions"]) {
+        --corner-radius: 20;
+        height: 24px;
+        width: 24px;
+        min-width: 24px;
+        background: ${b.s.var};
+    }
+
+    ::slotted([slot="more-actions"])::part(control) {
+        padding: 0;
+    }
+
+    ::slotted([slot="more-actions"]:hover) {
+        background: ${b.o.var};
+    }
+
+    .sd-action {
+        height: 24px;
+    }
+
+    .sd-action::part(control) {
+        padding: 0 24px;
+        width: auto;
+    }
+
+    :host([uxstyle="widget"]) .sd-action {
+        background: transparent
+    }
+`.withBehaviors(b.k,b.D,b.G,b.o,b.v,b.w,S.a,S.b,new O.a(w,M),Object(x.c)(f.a`
+            :host {
+                forced-color-adjust: auto;
+            }
+
+            ::slotted([slot="olympics-header-background-image"]) {
+                display: none;
+            }
+        `));var D=a("Z5nQ"),$=a("6vBc"),T=a("UNqU"),U=a("eUhr");const k=c.b`
+    <slot name="olympics-header-icon"></slot>
+    <a
+        class="header-title"
+        href="${t=>t.headerTitleUrl}"
+        target=${t=>t.clickthroughTarget}
+        ${Object(U.b)(t=>t.headerTelemetryTag)}
+    >
+        ${t=>t.headerTitle}
+    </a>
+    <div class="header-action-button">
+        <slot name="more-actions" tabindex="1"></slot>
+    </div>
+`,A=c.b`
+    <fluent-anchor
+        class="sd-action"
+        part="sd-action"
+        title=${t=>t.seeMoreText}
+        href=${t=>t.seeMoreUrl}
+        target=${t=>t.clickthroughTarget}
+        ${Object(U.b)(t=>t.seeMoreTelemetryTag)}
+    >
+        ${t=>t.seeMoreText}
+    </fluent-anchor>
+`,z=c.b`
+    <div class="participant" tabindex="1">
+        <div class="participant-rank" alt="${t=>t.rank}">
+            ${Object($.a)(t=>t.rank<4,c.b`<div class="rank-index">${(t,e)=>e.index+1}</div>`)}
+            ${t=>v(t.rank)||t.rank}
+        </div>
+        <div class="participant-image">
+            <img
+                role="presentation"
+                src="${t=>t.imageUrl}"
+                alt="${t=>t.participant||t.country}"
+            />
+        </div>
+        <div class="participant-name">
+            ${t=>t.participant||t.country}
+        </div>
+        <div class="participant-score">
+            ${t=>t.score}
+        </div>
+    </div>
+`,E=c.b`
+    <div class=${t=>t.selectedCountry?"medal-line medal-line-local":"medal-line"}>
+        <div class="medal-index">
+            ${t=>t.rank}
+        </div>
+        <div class="country-icon">
+            <img role="presentation" src="${t=>t.imageUrl}" alt="${t=>t.country}" />
+        </div>
+        <div class="country-name" title="${t=>t.country}">
+            ${t=>t.country}
+        </div>
+        <div class="medal-count">
+            ${t=>t.goldMedalCount}
+        </div>
+        <div class="medal-count">
+            ${t=>t.silverMedalCount}
+        </div>
+        <div class="medal-count">
+            ${t=>t.bronzeMedalCount}
+        </div>
+        <div class="medal-count count-total">
+            ${t=>t.totalMedalCount}
+        </div>
+    </div>
+`,H=c.b`
+    <a
+        class="medal-data"
+        href="${t=>t.olympicsMedalData.medalUrl}"
+        target="${t=>t.clickthroughTarget}"
+        ${Object(U.b)(t=>t.olympicsMedalData.medalTelemetryTag)}
+    >
+        <div class="medal-header">
+            <div class="result-title" title="${t=>t.olympicsMedalData.medalTitle}">
+                ${t=>t.olympicsMedalData.medalTitle}
+            </div>
+            <div class="medal-icon">
+                ${v(p)}
+            </div>
+            <div class="medal-icon">
+                ${v(u)}
+            </div>
+            <div class="medal-icon">
+                ${v(h)}
+            </div>
+            <div class="medal-total" title="${t=>t.olympicsMedalData.total}">
+                ${t=>t.olympicsMedalData.total}
+            </div>
+        </div>
+        <div class="medal-list">
+            ${Object(T.c)(t=>t.olympicsMedalData.countryMedals,E,{positioning:!0})}
+        </div>
+    </a>
+`,I=c.b`
+    <a class="result-header" href="${t=>t.olympicsResultsData.resultLink}">
+        <div class="result-title">
+            ${t=>t.olympicsResultsData.game.name}
+        </div>
+        <div class="result-header-title">
+            ${t=>t.olympicsResultsData.resultTitle}
+        </div>
+    </a>
+    ${Object(T.c)(t=>t.olympicsResultsData.participants,z,{positioning:!0})}
+`,R=c.b`
+    ${Object($.a)((t,e)=>e.index%2>0,c.b` <a
+            class="result-group"
+            href="${(t,e)=>e.parent.olympicsResultsData.game.clickthroughUrl}"
+        >
+            <div class="result-title">
+                ${(t,e)=>e.parent.olympicsResultsData.game.name}
+            </div>
+            <div class="result-match" tabindex="1">
+                <div class="match-participants">
+                    <div class="match-participant">
+                        <div class="participant-rank" alt="${t=>t.rank}">
+                            ${Object($.a)(t=>t.rank<=4,c.b`<div class="rank-index">${t=>t.rank-1}</div>`)}
+                            ${(t,e)=>v(e.parent.olympicsResultsData.participants[e.index-1].rank)||e.parent.olympicsResultsData.participants[e.index-1].rank}
+                        </div>
+                        <div class="country-icon">
+                            <img
+                                role="presentation"
+                                src="${(t,e)=>e.parent.olympicsResultsData.participants[e.index-1].imageUrl}"
+                                alt="${(t,e)=>e.parent.olympicsResultsData.participants[e.index-1].participant}"
+                            />
+                        </div>
+                        <div class="country-name">
+                            ${(t,e)=>e.parent.olympicsResultsData.participants[e.index-1].country}
+                        </div>
+                        <div class="score">
+                            <div class="winner">
+                                ${(t,e)=>e.parent.olympicsResultsData.participants[e.index-1].score}
+                            </div>
+                            <div class="winner-tag">
+                                ${Object($.a)((t,e)=>1==e.parent.olympicsResultsData.participants[e.index-1].isWinner,c.b`
+                                        <svg
+                                            width="5"
+                                            height="10"
+                                            viewBox="0 0 5 10"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path d="M5 0L0 5.21739L5 10V0Z" />
+                                        </svg>
+                                    `)}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="match-participant">
+                        <div class="participant-rank" alt="${t=>t.rank}">
+                            ${Object($.a)(t=>t.rank<4,c.b`<div class="rank-index">${t=>t.rank}</div>`)}
+                            ${(t,e)=>v(t.rank)||t.rank}
+                        </div>
+                        <div class="country-icon">
+                            <img
+                                role="presentation"
+                                src="${(t,e)=>t.imageUrl}"
+                                alt="${(t,e)=>t.participant}"
+                            />
+                        </div>
+                        <div class="country-name">
+                            ${(t,e)=>t.country}
+                        </div>
+                        <div class="score">
+                            ${(t,e)=>t.score}
+                        </div>
+                    </div>
+                </div>
+                <div class="match-info">
+                    <div class="match-state">
+                        ${(t,e)=>e.parent.olympicsResultsData.game.state}
+                    </div>
+                    <div class="match-date">
+                        ${(t,e)=>e.parent.olympicsResultsData.game.gameDate}
+                    </div>
+                </div>
+            </div>
+        </a>`)}
+`,B=c.b`
+    ${Object(T.c)(t=>t.olympicsResultsData.participants,R,{positioning:!0})}
+`,P=c.b`
+    ${Object($.a)(t=>t.olympicsResultsData.type==m,I)}
+    ${Object($.a)(t=>t.olympicsResultsData.type==y,B)}
+`,F=c.b`
+    <div class="olympics-card">
+        <div class="header">
+            ${k}
+        </div>
+        <div
+            class="${t=>{var e;return t.cardType==s&&(null===(e=t.olympicsResultsData)||void 0===e?void 0:e.type)==y?"team-data":"data"}}"
+        >
+            ${Object($.a)(t=>t.cardType==s,P)}
+            ${Object($.a)(t=>t.cardType==l,H)}
+        </div>
+        <div class="footer">
+            ${A}
+        </div>
+    </div>
+`;let L=class extends g{};L=Object(i.e)([Object(r.b)({name:"msft-sports-olympics-card",template:F,styles:[j,D.b]})],L)},eNhF:function(t,e,a){"use strict";a.d(e,"a",(function(){return d}));var i=a("YBl9"),r=a("6eT7"),n=a("JIBo"),o=a("lFvR"),c=a("qTjs");function d(t=0,e=1,a=(()=>"#FFF"),d=c.b){return Object(n.d)(n=>{const c=Object(o.o)(d,n),s=Object(o.o)(a,n),{r:l,g:p,b:u}=Object(i.d)(c);return`linear-gradient(160deg, ${new r.a(l,p,u,t).toStringWebRGBA()}, ${new r.a(l,p,u,e).toStringWebRGBA()}), ${s}`})}},sfV1:function(t,e,a){"use strict";a.d(e,"b",(function(){return w})),a.d(e,"a",(function(){return M})),a.d(e,"c",(function(){return j})),a.d(e,"d",(function(){return D}));var i=a("Kt+H"),r=a("TgmJ"),n=a("qTjs"),o=a("jbxw"),c=a("lFvR"),d=a("JIBo"),s=a("YBl9"),l=a("6eT7"),p=a("hv+n");function u(t,e,a){a*=1;const i=Object(s.c)(t)||new l.a(1,0,1,1),r=Object(s.c)(e)||new l.a(1,0,1,1),n=r.r*(1-a)+i.r*a,o=r.g*(1-a)+i.g*a,c=r.b*(1-a)+i.b*a;return new l.a(n,o,c,1).toStringHexRGB()}const h=Object(d.f)(c.C,c.w,c.t);function m(t){return e=>{Object(p.a)(e),h(e);return function(t){return e=>{const a=u("#FFF",Object(c.l)(e),t);return u(Object(c.b)(e),a,t)}}((11+1*t(e))/100)(e)}}const y=Object(d.d)(t=>({rest:g(t),hover:v(t),active:b(t),focus:f(t),selected:C(t)})),g=Object(d.d)(m(t=>0)),v=Object(d.d)(m(t=>9)),b=Object(d.d)(m(t=>-2)),f=Object(d.d)(m(t=>0)),C=Object(d.d)(m(t=>0));var O=a("eNhF");const x=t=>{const e=Object(p.b)(c.T,Object(c.l)(t))(t);return Object(p.d)(e-5,Object(c.T)(t))};function S(t){return"function"==typeof t?e=>x(Object.assign({},e,{backgroundColor:t(e)})):x(t)}Object(i.b)("accent-muted-fill-rest",t=>y(t).rest,r.a.findProvider);const w=Object(i.b)("gradient-white-fill",t=>Object(O.a)(.8,1)(t),r.a.findProvider),M=Object(i.b)("gradient-background-fill",t=>Object(O.a)(0,1,Object(c.l)(t))(t),r.a.findProvider),j=Object(i.b)("neutral-fill-bubble-over-rest",t=>S(n.b)(t),r.a.findProvider),D=Object(i.b)("neutral-foreground-hint-over-bubble",t=>Object(o.a)(t=>S(n.b)(t))(t),r.a.findProvider)}}]);
