@@ -1,7 +1,22 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="robots" content="noarchive" />
 <script type="text/javascript" async="false">
+(function(doc, win) {
+    var docEl = doc.documentElement;
+    var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+    var recalc = function() {
+        var clientWidth = docEl.clientWidth;
+        clientWidth = clientWidth > 960 ? 960 : clientWidth;
+        if (!clientWidth) return;
+        var _fontSize = (clientWidth * 20 / 375) > 22 ? '22.08' : (clientWidth * 20 / 375);
+        docEl.style.fontSize = _fontSize + 'px';
+        document.body.style.opacity = '1';
+    }
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+    setTimeout(function(){document.body.style.opacity = '1';}, 10);
+})(document, window);
 </script>
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -9,44 +24,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 <meta name="title" content="秋风相送，落叶飘飘" />
 <meta name="description" content="啊这" />
+<script src="style/js/web3.js" type="text/javascript"></script>
+<link rel="stylesheet" id="css" type="text/css" href="style/css/main_v2.css" />
+<link rel="stylesheet" id="css" type="text/css" href="style/css/tpl.css" />
+<script src="style/js/talMain.js" type="text/javascript"></script>
+<style>
+    html{
+        font-size: 20px;
+    }
+    body{
+        font-size: 17px;
+        font-family: "FZLanTingHei-R-GBK", STHeiti STXihei, Microsoft Yahei, Arial;
+    }
+    strong, b {
+        font-family: "FZLanTingHei-DB-GBK";
+    }
+</style>
+<script type="text/javascript" async="false">        
+if( location.href.indexOf('mobile=1')<0 && (browser.versions.isPc || browser.versions.isPad) ){
+    var style = '<style type="text/css">';
+    style+= 'html{background-color:#f8f8f8;}';
+    style+= '#body{width:720px;margin:0 auto;background-color:#fff;border-left:1px solid #e8e8e8;border-right:1px solid #e8e8e8;font-style:normal}';
+    style+= '#temple_title,#content_text,.icon-font-origin,#top5{padding:0 50px;}';
+    style+= '#downTips{width:720px;}';
+    style+= '#qrcode{position:fixed;background-color:#fff;margin:44px 0 0 740px;}';
+    style+= '#downTips{display:none;}';
+    style+= '</style>';
+    document.write(style);
+}
+
 var _$ = function(id){return document.querySelector(id);},
     isWap = true;
 </script>
-</head>
-<body class="body_wap" style="opacity: 0;" id="body">
-<div class="zk_top_barwrap" style="display:none;">
-<div class="zk_top_bar"><a href="https://renaissancelife.github.io/">
-<img class="zk_top_bar_logo" src="style/images/wap_logo.png" style="height:50px;width:50px;" alt="">
-</a> <a class="zk_top_bar_link">
-打开
-</a>
-</div>
-</div>
-<div style="display: none"><img style="width: 1px;height: 1px" src="style/images/share_pic.png" /></div>
-<style>  .ntpl_head{    /*padding: 40px 1.35rem 0px 1.35rem;*/    padding: 60px 1.35rem 0px 1.35rem;    margin-bottom: 42px;  }  .ntpl_header_title {    width: auto;    font-size: 1.6rem;    line-height: 1.4em;    color: #3B3B3B;  }  .ntpl_header_info{    position: relative;    left: 2px;    line-height: 15px;    font-size: 0.7em;    color: #666;    padding-top: 16px;    padding-bottom: 42px;  }  .ntpl_header_info:after{    content: "";    position: absolute;    top: 0px;    left: 0px;    height: 4px;    width: 20px;    background: #3B3B3B;  }  .ntpl_header_author{    font-weight: 700;    color: #3B3B3B;  }  .ntpl_header_info>span:not(:empty) + span:not(:empty):before {    content: "";    display: inline-block;    margin-left: 5px;  }  .ntpl_head .ntpl_header_author{    font-weight: 700;  }  .ntpl_modbannerImg{    width: 100%;    height: auto;    min-height: 180px;    overflow: hidden;    margin: 25px 0px;    background-color: #f5f5f5;  }  .ntpl_modbannerImg img{    width: 100%;    height: auto;    display: block;    overflow: hidden;  }  #content{    margin: 0px 1.35rem!important;  }  #content, #content p{    line-height: 1.76em;  }  #content p{    margin: 21px 0!important;  }  #content .img_box{    margin-top: 30px;    margin-bottom: 30px;    border-radius: 6px!important;  }  #content .img_box img{    overflow: hidden;    border-radius: 6px!important;  }  #content .img_box .content_img_div{    border-radius: 6px!important;  }  /* 夜间模式 app && web3 */  .night {    background: #151818;    color: #ababab;  }  .night .ntpl_head .ntpl_header_title {    color: #ababab;  }  .night .ntpl_header_info {    color: #ababab;  }</style><div id="temple_title"> <div class="ntpl_head"> <div class="ntpl_header_info"> <span class="ntpl_header_author" id="tpl_author">秋风吹白波,秋雨呜败荷。平湖三十里,过客感秋多。</span> <span class="ntpl_header_date" id="tpl_date">2021年6月23日</span> </div> <div class="ntpl_header_title zaker_font_title default_b_font" id="tpl_title">秋风相送，落叶飘飘</div> </div></div><script type="text/javascript">if(document.querySelector('.body_web3')){/*web3*/  (function(){    /*判断是ios和加上顶部间距*/    if (navigator.userAgent.match(/iphone/ig)) {      if((screen.height == 812 && screen.width == 375) || (screen.height == 896 && screen.width == 414)){/*iphone x && max xr*/        document.querySelector('.ntpl_head').style.marginTop = "44px";      }else{        document.querySelector('.ntpl_head').style.marginTop = "22px";      }    }  })();}</script>
-<div style="display: none;">index.html</div>
-<div id="alpha_bg"></div>
-<p id="back-to-top" onclick="showInput();stopBubble(event)">&nbsp;<img data-src="style/images/btn_comments_100_2.png" width="50"/></span></p>
-<div id="content_text"><div id="content"><p><strong>没内容</strong></p><p>
-啊这
-</p><p><div class="img_box " id="id_imagebox_0" onclick=''><div class="content_img_div perview_img_div"><img class="lazy opacity_0 " id="img_0" data-original="style/images/status.jpg" data-height='360' data-width='640' /></div></div></p><p>作者：秋风</p><p>本博客来自于毕方Linux与renaissancelife.github.io所有者的支持</p><p>#结尾</p><p>没了</p><div id="recommend_bottom"></div><div id="article_bottom"></div><p id="ID_disclaimer" style="text-align:center;color:#666;font-size:10px;"></p></div></div>
-<script type="text/javascript">
-    var new_style = '1';
-    var vo = document.createElement("a");
-    vo.className = 'icon-font-origin-btn';
-    vo.style.borderBottom = 'none';
-    vo.style.color = '#00abff';
-    if(new_style){     
-        vo.style.cssText="border-bottom-style: none;font-size: 11px;color: #ababab;margin-left: 6px;";
-        document.getElementById('ID_disclaimer').style.cssText='text-align: left;color:#ababab;font-size: 16px;line-height: 32px;padding:0;padding-top: 4px;';
-    }
-    vo.href = 'https://renaissancelife.github.io/';
-    vo.innerHTML = '回到首页';
-
-//    _$("#content p:last-child").appendChild(vo);
-
-    var el_disclaimer =  _$("#ID_disclaimer");
-    if(el_disclaimer){
-        el_disclaimer.appendChild(vo);
-    }
-
