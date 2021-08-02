@@ -1,0 +1,173 @@
+$(document).ready(function() {
+
+    $('body').on('click', "#accounts-button", function (e){
+		$(".item-list").show();
+		e.stopPropagation();
+		$('body').one("click",function(){
+			$(".item-list").hide();
+		});
+	});
+    	
+    $('body').on('click', ".darkmode", function (e){
+		$(".darkmode .switch").toggleClass("on");
+		if(Cookies.get('darkmode')){
+			Cookies.remove('darkmode');
+		}
+		else{
+			Cookies.set('darkmode', 'on', { expires: 365 });
+		}
+		$('body').toggleClass("dark");
+		e.stopPropagation();
+	});
+	
+	if($(".nano").length>0){
+		$(".nano").nanoScroller();
+	}
+	
+	$('body').on('click', '.Ib-T', function (){
+		var nodeid = $(this).attr("nodeid");
+		var isfollow = $(this).attr("isfollow");
+		var $this = $(this);
+		$.post("/do", { c: "node", t: (isfollow==1?"unfollow":"follow"), nodeid:nodeid },function(data){
+			if(!data.error){
+				$this.attr("isfollow",(isfollow==1?"0":"1"));
+				$this.removeClass("Ib-T-"+(isfollow==1?"xc":"yc")).addClass("Ib-T-"+(isfollow==1?"yc":"xc"));
+				
+				if($this.hasClass("popover")){
+					$this.text(isfollow==1?"订阅":"取消订阅");
+				}
+				$("#node-"+nodeid).find(".i-o").attr("isfollow",(isfollow==1?"0":"1"));
+				if(isfollow==1 && $(document).find(".bc-tc-tb").text()=='我的订阅'){
+					$('.i-o').webuiPopover('destroy');
+					$("#node-"+nodeid).fadeOut('normal',function(){
+						$("#node-"+nodeid).remove();
+					});
+				}
+				
+			}
+			else{
+				layer.msg(data.msg);
+			}
+		});
+	
+	});
+	
+	
+	$('body').on('click', "a[itemid]", function (e){
+		var itemid = $(this).attr("itemid");
+		$.post("/do", { c: "item", t: "view", itemid:itemid },function(data){});
+	});
+	
+
+	$('body').on('click', ".i-o", function (e){
+		$(this).webuiPopover('destroy').webuiPopover({
+							trigger:'manual',
+							title:'节点',
+							content:'<a class="Ib-T popover" nodeid="'+$(this).attr("nodeid")+'" isfollow="'+$(this).attr("isfollow")+'">'+($(this).attr("isfollow")==1?'取消':'')+'订阅</a><a class="copy" nodeid="'+$(this).attr("nodeid")+'" hashid="'+$(this).attr("hashid")+'">复制内容</a><a href="/n/'+$(this).attr("hashid")+'">访问节点</a><a href="'+$(this).attr("homepage")+'" target="_blank">访问源网站</a>',
+							width:'auto',						
+							multi:false,						
+							closeable:true,
+							style:(Cookies.get('darkmode')?'inverse':''),
+							padding:true,
+							backdrop:false,
+							dismissible:true,
+							cache:false,
+							animation:'pop'
+					}).webuiPopover('show');
+
+	});
+
+
+	$('body').on('click', ".alert-button", function (e){
+		var alertid = parseInt($(this).attr("alertid"));
+		var isfollow = parseInt($(this).attr("isfollow"));
+		var $this = $(this);
+		
+		$.post("/do", { c: "alert", t: (isfollow==1?"delete":"create"), alertid:alertid },function(data){
+			if(!data.error){
+				$this.attr("isfollow",(isfollow==1?"0":"1"));
+				$this.html(isfollow==1?"&#xe6cd;":"&#xe63f;");
+				
+				layer.msg(isfollow==1?"取消追踪成功":"添加成功,追踪到的快讯会在 App 端推送给您!");
+			}
+			else{
+				layer.msg(data.msg);
+			}
+		});		
+
+	});
+	
+	
+	$('body').on('click', '.copy', function (){
+		var nodeid = $(this).attr("nodeid");
+		var hashid = $(this).attr("hashid");
+		
+		//私人聚合
+		if(nodeid == 261 || nodeid == 279 || nodeid == 280){
+			layer.msg("私人订阅内容暂不支持复制分享");
+			return ;
+		}
+		
+		var date = new Date();
+        var curYear = date.getFullYear();
+        var curMonth = date.getMonth() + 1;
+        var curDate = date.getDate();
+        if(curMonth<10){
+                curMonth = '0' + curMonth;
+        }
+        if(curDate<10){
+                curDate = '0' + curDate;
+        }    
+        var curHours = date.getHours();
+        
+        var name = $('#node-' + nodeid + ' .cc-cd-lb').text().replace(/(^\s*)|(\s*$)/g, "");
+		var linestr = "▌" + (name=="实时榜中榜"?"「今日热榜」":name) + $('#node-' + nodeid + ' .cc-cd-sb-ss-ia .cc-cd-sb-st').text() + " (" + curYear + "年" + curMonth + "月" + curDate + "日" + curHours + "时)\n";
+		
+		if(nodeid == 277){
+			$('#node-' + nodeid + ' .mp').each(function(i,n){
+				linestr += $(n).find(".pp").text();
+				linestr += "、";
+				linestr += $(n).find(".tt").text();
+				linestr += (" (" + $(n).find(".ss").text() + ")");
+				linestr += "\n";
+			});
+		}
+		else{
+			$('#node-' + nodeid + ' .cc-cd-cb-ll').each(function(i,n){
+				linestr += $(n).find(".s").text();
+				linestr += "、";
+				linestr += $(n).find(".t").text();
+				if($(n).find(".e").text().length >0) linestr += (" (" + $(n).find(".e").text() + ")");
+				linestr += "\n";
+			});
+		}
+		
+		linestr += "#今日热榜 https://tophub.today/n/" + hashid;
+		
+		layer.open({
+		  type: 1,
+		  anim: 2,
+		  title: "复制",
+		  area: ['500px', '330px'],
+		  scrollbar: false,
+		  shadeClose: true,
+		  content: '<div class="copy-box"><textarea class="form-control" rows="10" id="copy-content">'+linestr+'</textarea><p><button class="form-btn" type="button" data-clipboard-target="#copy-content">点击复制内容</button></p></div>'
+		});
+	});
+
+
+	if(window.ClipboardJS) {
+
+		var clipboard = new ClipboardJS('.form-btn');
+		clipboard.on('success', function(e) {
+			$('.form-btn').text("复制成功");
+		    e.clearSelection();
+		});
+		clipboard.on('error', function(e) {
+			$('.form-btn').text("复制失败,请手工操作");
+		});	
+	
+	}
+
+	
+});
